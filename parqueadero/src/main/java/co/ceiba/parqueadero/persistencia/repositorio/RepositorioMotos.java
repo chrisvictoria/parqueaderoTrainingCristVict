@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import co.ceiba.parqueadero.negocio.Moto;
+import co.ceiba.parqueadero.negocio.Vehiculo;
 import co.ceiba.parqueadero.negocio.repositorio.IRepositorioMotos;
 import co.ceiba.parqueadero.persistencia.builder.MotoBuilder;
 import co.ceiba.parqueadero.persistencia.entidad.MotoEntity;
@@ -21,14 +22,14 @@ public class RepositorioMotos implements IRepositorioMotos{
 	}
 	
 	@Override
-	public Moto obtenerPorPlaca(String placa) {
+	public Vehiculo obtenerPorPlaca(String placa) {
 		MotoEntity motoEntity = obtenerMotoEntityPorPlaca(placa);
 		return MotoBuilder.convertirADominio(motoEntity);
 	}
 
 	@Override
-	public void agregar(Moto moto) {
-		MotoEntity motoEntity = buildMotoEntity(moto);
+	public void agregar(Vehiculo moto) {
+		MotoEntity motoEntity = buildMotoEntity((Moto)moto);
 		entityManager.persist(motoEntity);
 	}
 	

@@ -1,6 +1,8 @@
 package co.ceiba.parqueadero.negocio;
 
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
@@ -14,19 +16,21 @@ public class Parqueadero {
 	
 	@Autowired
 	private IVigilar vigilante;
-
+	@Autowired
 	private SistemaDePersistencia sistemaDePersistencia;
 	private IEstrategiaCobro estrategiaCobro;
 	
 	@Value("20")
-	private int capacidadCarros;
+	private int capacidadMaximaCarros;
 	@Value("10")
-	private int capacidadMotos;	
+	private int capacidadMaximaMotos;	
 	
-	public Parqueadero(int capacidadCarros, int capacidadMotos){
-		this.capacidadCarros = capacidadCarros;
-		this.capacidadMotos = capacidadMotos;
-		this.sistemaDePersistencia = new SistemaDePersistencia();
+	private int cantidadMotos = 0;
+	private int cantidadCarros = 0;
+	
+	public Parqueadero(SistemaDePersistencia sistemaDePersistencia, IVigilar vigilante){
+		this.vigilante = vigilante;
+		this.sistemaDePersistencia = sistemaDePersistencia;
 	}
 	
 	public IVigilar getVigilante() {
@@ -38,11 +42,11 @@ public class Parqueadero {
 	}
 
 	public int getCapacidadCarros() {
-		return capacidadCarros;
+		return capacidadMaximaCarros;
 	}
 
 	public int getCapacidadMotos() {
-		return capacidadMotos;
+		return capacidadMaximaMotos;
 	}
 	
 	public IEstrategiaCobro getEstrategiaCobro() {
@@ -52,13 +56,44 @@ public class Parqueadero {
 	public void setEstrategiaCobro(IEstrategiaCobro estrategiaCobro) {
 		this.estrategiaCobro = estrategiaCobro;
 	}
+	
+	public int getCantidadMotos() {
+		return cantidadMotos;
+	}
 
-	public void registrarEntradaVehiculo(Vehiculo vehiculo){
+	public int getCantidadCarros() {
+		return cantidadCarros;
+	}
+
+	public void registrarEntradaCarro(Vehiculo vehiculo){
 		vigilante.revisarVehiculo(vehiculo);
+		sistemaDePersistencia.getRepositorioCarros().agregar(vehiculo);
+		Registro registro = new Registro(new Date(), Registro.TIPO_ENTRADA , vehiculo);
+		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroCarro(registro);
+		cantidadCarros += 1;
 	}
 	
-	public void registrarSalidaVehiculo(Vehiculo vehiculo){
+	public void registrarEntradaMoto(Vehiculo vehiculo){
 		vigilante.revisarVehiculo(vehiculo);
+		sistemaDePersistencia.getRepositorioMotos().agregar(vehiculo);
+		Registro registro = new Registro(new Date(), Registro.TIPO_ENTRADA , vehiculo);
+		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroMoto(registro);
+		cantidadMotos += 1;
+	}
+	
+	public void registrarSalidaCarro(Vehiculo vehiculo){
+		vigilante.revisarVehiculo(vehiculo);
+		Registro registro = new Registro(new Date(), Registro.TIPO_SALIDA , vehiculo);
+		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroCarro(registro);
+		cantidadCarros -= 1;
+	}
+	
+	public void registrarSalidaMoto(Vehiculo vehiculo){
+		vigilante.revisarVehiculo(vehiculo);
+		sistemaDePersistencia.getRepositorioMotos().agregar(vehiculo);
+		Registro registro = new Registro(new Date(), Registro.TIPO_SALIDA , vehiculo);
+		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroMoto(registro);
+		cantidadMotos -= 1;
 	}
 	
 	public void cobrarVehiculo(Vehiculo vehiculo){

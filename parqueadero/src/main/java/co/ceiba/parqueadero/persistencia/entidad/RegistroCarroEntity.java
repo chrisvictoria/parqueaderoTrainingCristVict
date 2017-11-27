@@ -15,15 +15,13 @@ public class RegistroCarroEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private Date fechaEntrada;
+	private Date fecha;
 	
-	private Date fechaSalida;
+	private String tipo;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_CARRO",referencedColumnName="id")
 	private CarroEntity carroEntity;
-	
-	private String tipo;
 	
 	public Long getId() {
 		return id;
@@ -31,28 +29,22 @@ public class RegistroCarroEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getFechaEntrada() {
-		return fechaEntrada;
+	public Date getFecha() {
+		return fecha;
 	}
-	public void setFechaEntrada(Date fechaEntrada) {
-		this.fechaEntrada = fechaEntrada;
-	}
-	public Date getFechaSalida() {
-		return fechaSalida;
-	}
-	public void setFechaSalida(Date fechaSalida) {
-		this.fechaSalida = fechaSalida;
-	}
-	public CarroEntity getCarroEntity() {
-		return carroEntity;
-	}
-	public void setCarroEntity(CarroEntity carroEntity) {
-		this.carroEntity = carroEntity;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 	public String getTipo() {
 		return tipo;
 	}
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
+	}
+	public CarroEntity getCarroEntity() {
+		return carroEntity;
+	}
+	public void setCarroEntity(CarroEntity carroEntity) {
+		this.carroEntity = carroEntity;
 	}
 }

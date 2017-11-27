@@ -3,9 +3,12 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
                                  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="biblioteca-pu-test" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="parqueadero-pu-test" transaction-type="RESOURCE_LOCAL">
 
-        <class></class>
+        <class>co.ceiba.parqueadero.persintencia.entidad.CarroEntity</class>
+        <class>co.ceiba.parqueadero.persintencia.entidad.MotoEntity</class>
+        <class>co.ceiba.parqueadero.persintencia.entidad.RegistroCarroEntity</class>
+        <class>co.ceiba.parqueadero.persintencia.entidad.RegistroMotoEntity</class>
 
         <properties>
             <!-- Configuring JDBC properties -->

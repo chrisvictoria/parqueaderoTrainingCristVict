@@ -9,7 +9,7 @@ public class ConexionJPA {
 	private static EntityManagerFactory entityManagerFactory;
 
 	public ConexionJPA() {
-		entityManagerFactory = Persistence.createEntityManagerFactory("");
+		entityManagerFactory = Persistence.createEntityManagerFactory("parqueadero-pu-test");
 	}
 	
 	public EntityManager createEntityManager() {

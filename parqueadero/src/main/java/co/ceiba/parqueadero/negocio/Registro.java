@@ -4,23 +4,26 @@ import java.util.Date;
 
 public class Registro {
 	
-	private Date fechaEntrada;
-	private Date fechaSalida;
+	public static final String TIPO_ENTRADA = "ENTRADA";
+	public static final String TIPO_SALIDA = "SALIDA";
+	
+	private Date fecha;
+	private String tipo;
 	private Vehiculo vehiculo;
 	
-	public Registro(Date fechaEntrada, Date fechaSalida, Vehiculo vehiculo) {
+	public Registro(Date fecha, String tipo, Vehiculo vehiculo) {
 		super();
-		this.fechaEntrada = fechaEntrada;
-		this.fechaSalida = fechaSalida;
+		this.fecha = fecha;
+		this.tipo = tipo;
 		this.vehiculo = vehiculo;
 	}
 
-	public Date getFechaEntrada() {
-		return fechaEntrada;
+	public Date getFecha() {
+		return fecha;
 	}
 
-	public Date getFechaSalida() {
-		return fechaSalida;
+	public String getTipo() {
+		return tipo;
 	}
 
 	public Vehiculo getVehiculo() {

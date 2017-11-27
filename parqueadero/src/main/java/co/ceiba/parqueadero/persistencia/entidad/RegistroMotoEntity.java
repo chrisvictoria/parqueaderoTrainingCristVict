@@ -15,9 +15,9 @@ public class RegistroMotoEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private Date fechaEntrada;
+	private Date fecha;
 	
-	private Date fechaSalida;
+	private String tipo;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_MOTO",referencedColumnName="id")
@@ -31,20 +31,20 @@ public class RegistroMotoEntity {
 		this.id = id;
 	}
 
-	public Date getFechaEntrada() {
-		return fechaEntrada;
+	public Date getFecha() {
+		return fecha;
 	}
 
-	public void setFechaEntrada(Date fechaEntrada) {
-		this.fechaEntrada = fechaEntrada;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 
-	public Date getFechaSalida() {
-		return fechaSalida;
+	public String getTipo() {
+		return tipo;
 	}
 
-	public void setFechaSalida(Date fechaSalida) {
-		this.fechaSalida = fechaSalida;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public MotoEntity getMotoEntity() {
