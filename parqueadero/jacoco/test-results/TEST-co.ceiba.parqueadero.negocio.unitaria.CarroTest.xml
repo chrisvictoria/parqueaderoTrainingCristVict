@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.ceiba.parqueadero.negocio.unitaria.CarroTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-11-27T14:50:02" hostname="CRISTIAN-VICTORIA" time="0.003">
+  <properties/>
+  <testcase name="crearCarroTest" classname="co.ceiba.parqueadero.negocio.unitaria.CarroTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

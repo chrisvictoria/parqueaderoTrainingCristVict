@@ -17,4 +17,8 @@ public class Moto extends Vehiculo{
 	public double getValorParqueadero(){
 		return 0;
 	}
+	
+	public double getCilindraje(){
+		return cilindraje;
+	}
 }
