@@ -12,7 +12,7 @@ public class Vigilante extends Persona implements IVigilar{
 	}
 
 	public void revisarVehiculo(Vehiculo vehiculo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Vigilante revisa carro");
+		System.out.println("Vigilante dice todo esta bien");
 	}
 }

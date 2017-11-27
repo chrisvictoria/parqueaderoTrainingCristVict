@@ -1,14 +1,12 @@
 package co.ceiba.parqueadero.negocio;
 
-import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import co.ceiba.parqueadero.negocio.repositorio.IRepositorioCarros;
-import co.ceiba.parqueadero.negocio.repositorio.IRepositorioMotos;
+import co.ceiba.parqueadero.persistencia.sistema.SistemaDePersistencia;
 
 @Scope(value = "application")
 @Component
@@ -17,19 +15,18 @@ public class Parqueadero {
 	@Autowired
 	private IVigilar vigilante;
 
-	IRepositorioMotos repositorioMotos;
-	IRepositorioCarros repositorioCarros;
+	private SistemaDePersistencia sistemaDePersistencia;
+	private IEstrategiaCobro estrategiaCobro;
 	
 	@Value("20")
 	private int capacidadCarros;
 	@Value("10")
 	private int capacidadMotos;	
 	
-	public Parqueadero(IRepositorioMotos repositorioMotos, IRepositorioCarros repositorioCarros, int capacidadCarros, int capacidadMotos){
-		this.repositorioMotos = repositorioMotos;
-		this.repositorioCarros = repositorioCarros;
+	public Parqueadero(int capacidadCarros, int capacidadMotos){
 		this.capacidadCarros = capacidadCarros;
 		this.capacidadMotos = capacidadMotos;
+		this.sistemaDePersistencia = new SistemaDePersistencia();
 	}
 	
 	public IVigilar getVigilante() {
@@ -46,6 +43,14 @@ public class Parqueadero {
 
 	public int getCapacidadMotos() {
 		return capacidadMotos;
+	}
+	
+	public IEstrategiaCobro getEstrategiaCobro() {
+		return estrategiaCobro;
+	}
+
+	public void setEstrategiaCobro(IEstrategiaCobro estrategiaCobro) {
+		this.estrategiaCobro = estrategiaCobro;
 	}
 
 	public void registrarEntradaVehiculo(Vehiculo vehiculo){
