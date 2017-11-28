@@ -69,6 +69,8 @@ public class RepositorioRegistro implements IRepositorioRegistro{
 	private RegistroCarroEntity obtenerRegistroCarroEntityPorPlaca(String placa) {
 		Query query = entityManager.createNamedQuery(CARRO_FIND_BY_PLACA);
 		query.setParameter(PLACA, placa);
+		System.out.println("obtenerRegistroCarroEntityPorPlaca");
+		System.out.println(query.unwrap(org.hibernate.Query.class).getQueryString());
 		List resultList = query.getResultList();
 		return !resultList.isEmpty() ? (RegistroCarroEntity) resultList.get(0) : null;
 	}

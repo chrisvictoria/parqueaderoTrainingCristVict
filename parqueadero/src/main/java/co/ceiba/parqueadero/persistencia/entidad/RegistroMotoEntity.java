@@ -11,15 +11,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 
 @Entity(name="RegistroMoto")
-@NamedQuery(name = "RegistroMoto.findByPlaca", query = "SELECT registromoto FROM RegistroMoto registromoto WHERE registromoto.fecha = (select max(a.fecha) FROM RegistroMoto a where a.motoEntity.placa = :placa) and registromoto.motoEntity.placa = :placa")
+@NamedQuery(name = "RegistroMoto.findByPlaca", query = "SELECT registromoto FROM RegistroMoto registromoto WHERE registromoto.fechaEntrada = (select max(a.fechaEntrada) FROM RegistroMoto a where a.motoEntity.placa = :placa) and registromoto.motoEntity.placa = :placa")
 public class RegistroMotoEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	private Date fecha;
+private Date fechaEntrada;
 	
-	private String tipo;
+	private Date fechaSalida;
+	
+	private double valor;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_MOTO",referencedColumnName="id")
@@ -32,21 +34,29 @@ public class RegistroMotoEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public Date getFecha() {
-		return fecha;
+	
+	public Date getFechaEntrada() {
+		return fechaEntrada;
 	}
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
+	public void setFechaEntrada(Date fechaEntrada) {
+		this.fechaEntrada = fechaEntrada;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public Date getFechaSalida() {
+		return fechaSalida;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setFechaSalida(Date fechaSalida) {
+		this.fechaSalida = fechaSalida;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 	public MotoEntity getMotoEntity() {

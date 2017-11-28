@@ -8,8 +8,9 @@ public class RegistroCarroBuilder {
 	
 	public static RegistroCarroEntity convertirAEntity(Registro registro, CarroEntity carroEntity){
 		RegistroCarroEntity registroCarroEntity = new RegistroCarroEntity();
-		registroCarroEntity.setFecha(registro.getFecha());
-		registroCarroEntity.setTipo(registro.getTipo());
+		registroCarroEntity.setFechaEntrada(registro.getFechaEntrada());
+		registroCarroEntity.setFechaSalida(registro.getFechaSalida());
+		registroCarroEntity.setValor(registro.getValor());
 		registroCarroEntity.setCarroEntity(carroEntity);
 		return registroCarroEntity;
 	}
@@ -17,7 +18,7 @@ public class RegistroCarroBuilder {
 	public static Registro convertirADominio(RegistroCarroEntity registroCarroEntity){
 		Registro registro = null;
 		if(registroCarroEntity != null){
-			registro = new Registro(registroCarroEntity.getFecha(), registroCarroEntity.getTipo(), CarroBuilder.convertirADominio(registroCarroEntity.getCarroEntity()));
+			registro = new Registro(registroCarroEntity.getFechaEntrada(), registroCarroEntity.getFechaSalida(), CarroBuilder.convertirADominio(registroCarroEntity.getCarroEntity()), registroCarroEntity.getValor());
 		}
 		return registro;
 	}

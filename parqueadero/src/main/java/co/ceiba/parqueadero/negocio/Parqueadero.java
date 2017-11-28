@@ -77,7 +77,7 @@ public class Parqueadero {
 		}
 		vigilante.revisarVehiculo(vehiculo);
 		sistemaDePersistencia.getRepositorioCarros().agregar(vehiculo);
-		Registro registro = new Registro(new Date(), Registro.TIPO_ENTRADA , vehiculo);
+		Registro registro = new Registro(new Date(), null , vehiculo, 0.0);
 		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroCarro(registro);
 	}
 	
@@ -92,10 +92,10 @@ public class Parqueadero {
 		}
 		vigilante.revisarVehiculo(vehiculo);
 		sistemaDePersistencia.getRepositorioMotos().agregar (vehiculo);
-		Registro registro = new Registro(new Date(), Registro.TIPO_ENTRADA , vehiculo);
+		Registro registro = new Registro(new Date(), null, vehiculo, 0.0);
 		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroMoto(registro);
 	}
-	
+	/*
 	public void registrarSalidaCarro(Vehiculo vehiculo){
 		if(!estaCarroEnParqueadero(vehiculo)){
 			throw new VehiculoException(VEHICULO_NO_ESTA_EN_PARQUEADERO);
@@ -116,18 +116,18 @@ public class Parqueadero {
 		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroMoto(registro);
 		cantidadMotos -= 1;
 	}
-	
+	*/
 	public void cobrarVehiculo(Vehiculo vehiculo){
 		
 	}
 	
 	public boolean estaCarroEnParqueadero(Vehiculo vehiculo){
 		Registro registro = sistemaDePersistencia.getRepositorioRegistro().obtenerUltimoRegistroCarroPorPlaca(vehiculo.getPlaca());
-		return registro != null && registro.getTipo() == Registro.TIPO_ENTRADA ? true : false;
+		return registro != null && registro.getFechaSalida() == null ? true : false;
 	}
 	
 	public boolean estaMotoEnParqueadero(Vehiculo vehiculo){
 		Registro registro = sistemaDePersistencia.getRepositorioRegistro().obtenerUltimoRegistroMotoPorPlaca(vehiculo.getPlaca());
-		return registro != null && registro.getTipo() == Registro.TIPO_ENTRADA ? true : false;
+		return registro != null && registro.getFechaSalida() == null ? true : false;
 	}
 }
