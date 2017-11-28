@@ -8,11 +8,17 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import co.ceiba.parqueadero.negocio.excepcion.VehiculoException;
 import co.ceiba.parqueadero.persistencia.sistema.SistemaDePersistencia;
 
 @Scope(value = "application")
 @Component
 public class Parqueadero {
+	
+	public static final String VEHICULO_ESTA_EN_PARQUEADERO = "Ya se ecuentra un vehiculo con la placa en el parqueadero";
+	public static final String VEHICULO_NO_ESTA_EN_PARQUEADERO = "No se ecuentra un vehiculo con la placa en el parqueadero";
+	public static final String PARQUEADERO_MOTOS_LLENO = "El parqueadero de motos esta lleno";
+	public static final String PARQUEADERO_CARROS_LLENO = "El parqueadero de carros esta lleno";
 	
 	@Autowired
 	private IVigilar vigilante;
@@ -29,7 +35,9 @@ public class Parqueadero {
 	private int cantidadMotos = 0;
 	private int cantidadCarros = 0;
 	
-	public Parqueadero(SistemaDePersistencia sistemaDePersistencia, IVigilar vigilante){
+	public Parqueadero(int capacidadMaximaCarros, int capacidadMaximaMotos, SistemaDePersistencia sistemaDePersistencia, IVigilar vigilante){
+		this.capacidadMaximaCarros = capacidadMaximaCarros;
+		this.capacidadMaximaMotos = capacidadMaximaMotos;
 		this.vigilante = vigilante;
 		this.sistemaDePersistencia = sistemaDePersistencia;
 	}
@@ -59,22 +67,39 @@ public class Parqueadero {
 	}
 
 	public void registrarEntradaCarro(Vehiculo vehiculo){
+		if(estaCarroEnParqueadero(vehiculo)){
+			throw new VehiculoException(VEHICULO_ESTA_EN_PARQUEADERO);
+		}
+		cantidadCarros += 1;
+		if(cantidadCarros > capacidadMaximaCarros){
+			cantidadCarros -= 1;
+			throw new VehiculoException(PARQUEADERO_CARROS_LLENO);
+		}
 		vigilante.revisarVehiculo(vehiculo);
 		sistemaDePersistencia.getRepositorioCarros().agregar(vehiculo);
 		Registro registro = new Registro(new Date(), Registro.TIPO_ENTRADA , vehiculo);
 		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroCarro(registro);
-		cantidadCarros += 1;
 	}
 	
 	public void registrarEntradaMoto(Vehiculo vehiculo){
+		if(estaMotoEnParqueadero(vehiculo)){
+			throw new VehiculoException(VEHICULO_ESTA_EN_PARQUEADERO);
+		}
+		cantidadMotos += 1;
+		if(cantidadMotos > capacidadMaximaMotos){
+			cantidadMotos -= 1;
+			throw new VehiculoException(PARQUEADERO_MOTOS_LLENO);
+		}
 		vigilante.revisarVehiculo(vehiculo);
 		sistemaDePersistencia.getRepositorioMotos().agregar (vehiculo);
 		Registro registro = new Registro(new Date(), Registro.TIPO_ENTRADA , vehiculo);
 		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroMoto(registro);
-		cantidadMotos += 1;
 	}
 	
 	public void registrarSalidaCarro(Vehiculo vehiculo){
+		if(!estaCarroEnParqueadero(vehiculo)){
+			throw new VehiculoException(VEHICULO_NO_ESTA_EN_PARQUEADERO);
+		}
 		vigilante.revisarVehiculo(vehiculo);
 		Registro registro = new Registro(new Date(), Registro.TIPO_SALIDA , vehiculo);
 		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroCarro(registro);
@@ -82,6 +107,9 @@ public class Parqueadero {
 	}
 	
 	public void registrarSalidaMoto(Vehiculo vehiculo){
+		if(!estaMotoEnParqueadero(vehiculo)){
+			throw new VehiculoException(VEHICULO_NO_ESTA_EN_PARQUEADERO);
+		}
 		vigilante.revisarVehiculo(vehiculo);
 		sistemaDePersistencia.getRepositorioMotos().agregar(vehiculo);
 		Registro registro = new Registro(new Date(), Registro.TIPO_SALIDA , vehiculo);
