@@ -7,6 +7,7 @@ public class Moto extends Vehiculo{
 	public Moto(String placa, double cilindraje) {
 		super(placa);
 		this.cilindraje = cilindraje;
+		this.tipoVehiculo = "MOTO";
 	}
 	
 	public Moto(String placa) {

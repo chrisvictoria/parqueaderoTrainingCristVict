@@ -21,7 +21,7 @@ public class SistemaDePersistencia {
 		this.entityManager = new ConexionJPA().createEntityManager();
 		this.repositorioMotos = new RepositorioMotos(entityManager);
 		this.repositorioCarros = new RepositorioCarros(entityManager);
-		this.repositorioRegistro = new RepositorioRegistro(entityManager);
+		this.repositorioRegistro = new RepositorioRegistro(entityManager, repositorioCarros, repositorioMotos);
 	}
 	
 	public IRepositorioMotos getRepositorioMotos(){

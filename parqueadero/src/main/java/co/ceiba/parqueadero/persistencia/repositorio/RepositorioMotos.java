@@ -22,7 +22,7 @@ public class RepositorioMotos implements IRepositorioMotos{
 	}
 	
 	@Override
-	public Vehiculo obtenerPorPlaca(String placa) {
+	public Moto obtenerPorPlaca(String placa) {
 		MotoEntity motoEntity = obtenerMotoEntityPorPlaca(placa);
 		return MotoBuilder.convertirADominio(motoEntity);
 	}
@@ -37,8 +37,9 @@ public class RepositorioMotos implements IRepositorioMotos{
 		return MotoBuilder.convertirAEntity(moto);
 	}
 	
+	@Override
 	@SuppressWarnings("rawtypes")
-	private MotoEntity obtenerMotoEntityPorPlaca(String placa){
+	public MotoEntity obtenerMotoEntityPorPlaca(String placa){
 		Query query = entityManager.createNamedQuery(MOTO_FIND_BY_PLACA);
 		query.setParameter(PLACA, placa);
 		List resultList = query.getResultList();

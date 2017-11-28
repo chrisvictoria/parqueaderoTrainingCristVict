@@ -18,7 +18,8 @@ public class Parqueadero {
 	private IVigilar vigilante;
 	@Autowired
 	private SistemaDePersistencia sistemaDePersistencia;
-	private IEstrategiaCobro estrategiaCobro;
+	private IEstrategiaCobro estrategiaCobroCarro;
+	private IEstrategiaCobro estrategiaCobroMoto;
 	
 	@Value("20")
 	private int capacidadMaximaCarros;
@@ -49,14 +50,6 @@ public class Parqueadero {
 		return capacidadMaximaMotos;
 	}
 	
-	public IEstrategiaCobro getEstrategiaCobro() {
-		return estrategiaCobro;
-	}
-
-	public void setEstrategiaCobro(IEstrategiaCobro estrategiaCobro) {
-		this.estrategiaCobro = estrategiaCobro;
-	}
-	
 	public int getCantidadMotos() {
 		return cantidadMotos;
 	}
@@ -75,7 +68,7 @@ public class Parqueadero {
 	
 	public void registrarEntradaMoto(Vehiculo vehiculo){
 		vigilante.revisarVehiculo(vehiculo);
-		sistemaDePersistencia.getRepositorioMotos().agregar(vehiculo);
+		sistemaDePersistencia.getRepositorioMotos().agregar (vehiculo);
 		Registro registro = new Registro(new Date(), Registro.TIPO_ENTRADA , vehiculo);
 		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroMoto(registro);
 		cantidadMotos += 1;
@@ -98,5 +91,15 @@ public class Parqueadero {
 	
 	public void cobrarVehiculo(Vehiculo vehiculo){
 		
+	}
+	
+	public boolean estaCarroEnParqueadero(Vehiculo vehiculo){
+		Registro registro = sistemaDePersistencia.getRepositorioRegistro().obtenerUltimoRegistroCarroPorPlaca(vehiculo.getPlaca());
+		return registro != null && registro.getTipo() == Registro.TIPO_ENTRADA ? true : false;
+	}
+	
+	public boolean estaMotoEnParqueadero(Vehiculo vehiculo){
+		Registro registro = sistemaDePersistencia.getRepositorioRegistro().obtenerUltimoRegistroMotoPorPlaca(vehiculo.getPlaca());
+		return registro != null && registro.getTipo() == Registro.TIPO_ENTRADA ? true : false;
 	}
 }

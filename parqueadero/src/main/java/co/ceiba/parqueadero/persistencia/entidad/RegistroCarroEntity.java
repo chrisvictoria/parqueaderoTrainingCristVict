@@ -8,8 +8,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 
 @Entity(name="RegistroCarro")
+@NamedQuery(name = "RegistroCarro.findByPlaca", query = "SELECT registrocarro FROM RegistroCarro registrocarro WHERE registrocarro.fecha = (select max(a.fecha) FROM RegistroCarro a where a.carroEntity.placa = :placa) and registrocarro.carroEntity.placa = :placa")
 public class RegistroCarroEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

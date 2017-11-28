@@ -2,6 +2,7 @@ package co.ceiba.parqueadero.negocio;
 
 public abstract class Vehiculo {
 	String placa;
+	static String tipoVehiculo;
 	
 	public Vehiculo(String  placa){
 		this.placa = placa;
@@ -13,5 +14,9 @@ public abstract class Vehiculo {
 
 	public void setPlaca(String placa) {
 		this.placa = placa;
+	}
+	
+	public String getTipoVehiculo() {
+		return tipoVehiculo;
 	}
 }

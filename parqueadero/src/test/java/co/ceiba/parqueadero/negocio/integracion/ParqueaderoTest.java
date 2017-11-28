@@ -19,19 +19,19 @@ public class ParqueaderoTest {
 		sistemaPersistencia = new SistemaDePersistencia();
 		sistemaPersistencia.iniciar();
 	}
-	/*
+	
 	@After
 	public void tearDown() {
 		sistemaPersistencia.terminar();
 	}
-	*/
+	
 	@Test
 	public void registrarEntradaCarroTest(){
-		sistemaPersistencia = new SistemaDePersistencia();
 		Vigilante  vigilante = new Vigilante("Pepe");
 		Carro carro = new Carro(PLACA);
 		Parqueadero parqueadero = new Parqueadero(sistemaPersistencia, vigilante);
 		parqueadero.registrarEntradaCarro(carro);
+		Assert.assertTrue(parqueadero.estaCarroEnParqueadero(carro));
 		Assert.assertEquals(1, parqueadero.getCantidadCarros());
 	}
 }

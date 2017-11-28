@@ -29,4 +29,16 @@ public class Registro {
 	public Vehiculo getVehiculo() {
 		return vehiculo;
 	}
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
+	}	
 }

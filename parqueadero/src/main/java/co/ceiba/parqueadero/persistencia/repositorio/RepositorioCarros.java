@@ -22,7 +22,7 @@ public class RepositorioCarros implements IRepositorioCarros{
 	}
 	
 	@Override
-	public Vehiculo obtenerPorPlaca(String placa) {
+	public Carro obtenerPorPlaca(String placa) {
 		CarroEntity carroEntity = obtenerCarroEntityPorPlaca(placa);
 		return CarroBuilder.convertirADominio(carroEntity);
 	}
@@ -30,7 +30,10 @@ public class RepositorioCarros implements IRepositorioCarros{
 	@Override
 	public void agregar(Vehiculo carro) {
 		CarroEntity carroEntity = buildCarroEntity((Carro)carro);
+		System.out.println("ACA!!!");
+		System.out.println(carroEntity.getPlaca());
 		entityManager.persist(carroEntity);
+		System.out.println("SALIO");
 	}
 	
 	private CarroEntity buildCarroEntity(Carro carro){
@@ -38,12 +41,12 @@ public class RepositorioCarros implements IRepositorioCarros{
 	}
 	
 	@SuppressWarnings("rawtypes")
-	private CarroEntity obtenerCarroEntityPorPlaca(String placa){
+	@Override
+	public CarroEntity obtenerCarroEntityPorPlaca(String placa){
 		Query query = entityManager.createNamedQuery(CARRO_FIND_BY_PLACA);
 		query.setParameter(PLACA, placa);
 
 		List resultList = query.getResultList();
 		return !resultList.isEmpty() ? (CarroEntity) resultList.get(0) : null;
 	}
-
 }
