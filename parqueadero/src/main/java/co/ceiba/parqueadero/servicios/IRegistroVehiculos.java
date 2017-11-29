@@ -4,6 +4,8 @@ import co.ceiba.parqueadero.negocio.Carro;
 import co.ceiba.parqueadero.negocio.Moto;
 
 public interface IRegistroVehiculos {
-	public void registrarCarro(Carro carro);
-	public void registrarMoto(Moto moto);
+	public String registrarEntradaCarro(Carro carro);
+	public String registrarSalidaCarro(Carro carro);
+	public String registrarEntradaMoto(Moto moto);
+	public String registrarSalidaMoto(Moto moto);
 }

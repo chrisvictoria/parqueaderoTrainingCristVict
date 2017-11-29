@@ -22,4 +22,11 @@ public class RegistroCarroBuilder {
 		}
 		return registro;
 	}
+	
+	public static RegistroCarroEntity actualizarDatosEntity(RegistroCarroEntity registroCarroEntity, Registro registro){
+		registroCarroEntity.setFechaEntrada(registro.getFechaEntrada());
+		registroCarroEntity.setFechaSalida(registro.getFechaSalida());
+		registroCarroEntity.setValor(registro.getValor());
+		return registroCarroEntity;
+	}
 }

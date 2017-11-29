@@ -2,7 +2,7 @@ package co.ceiba.parqueadero.negocio;
 
 
 public class Persona {
-	private String nombre;
+	String nombre;
 	
 	public Persona(String nombre) {
 		this.nombre = nombre;

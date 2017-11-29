@@ -1,7 +1,8 @@
 package co.ceiba.parqueadero.negocio;
 
+import java.util.Date;
+
 public interface IEstrategiaCobro {
 	
-	double cobrarHora(final double horas);
-	double cobrarDia(final double horas);
+	double cobrar(Date fechaEntrada, Date fechaSalida, double cilindraje);
 }

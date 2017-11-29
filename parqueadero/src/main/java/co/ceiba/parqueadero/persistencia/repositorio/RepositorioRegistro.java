@@ -79,4 +79,11 @@ public class RepositorioRegistro implements IRepositorioRegistro{
 		List resultList = query.getResultList();
 		return !resultList.isEmpty() ? (RegistroMotoEntity) resultList.get(0) : null;
 	}
+
+	@Override
+	public void actualizarRegistroCarro(Registro registro) {
+		RegistroCarroEntity registroCarroEntity = obtenerRegistroCarroEntityPorPlaca(registro.getVehiculo().getPlaca());
+		RegistroCarroBuilder.actualizarDatosEntity(registroCarroEntity, registro);
+		entityManager.persist(registroCarroEntity);		
+	}
 }

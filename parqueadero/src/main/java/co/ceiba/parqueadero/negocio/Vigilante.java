@@ -1,13 +1,14 @@
 package co.ceiba.parqueadero.negocio;
 
-//import org.springframework.context.annotation.Scope;
-//import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
-//@Scope(value = "application")
-//@Component
+@Scope(value = "application")
+@Component
 public class Vigilante extends Persona implements IVigilar{
 	
-	public Vigilante(String nombre) {
+	public Vigilante(@Value("Pepe") String nombre) {
 		super(nombre);
 	}
 

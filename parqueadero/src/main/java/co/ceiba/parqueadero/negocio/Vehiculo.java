@@ -4,6 +4,8 @@ public abstract class Vehiculo {
 	String placa;
 	static String tipoVehiculo;
 	
+	public Vehiculo(){}
+	
 	public Vehiculo(String  placa){
 		this.placa = placa;
 	}
