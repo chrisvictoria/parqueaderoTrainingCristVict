@@ -1,10 +1,12 @@
 package co.ceiba.parqueadero.negocio.integracion;
 
-import static org.junit.Assert.fail;
+//import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Assert;
+
 
 import co.ceiba.parqueadero.negocio.Carro;
 import co.ceiba.parqueadero.negocio.Moto;
@@ -12,7 +14,7 @@ import co.ceiba.parqueadero.negocio.Parqueadero;
 import co.ceiba.parqueadero.negocio.Vigilante;
 import co.ceiba.parqueadero.negocio.excepcion.VehiculoException;
 import co.ceiba.parqueadero.persistencia.sistema.SistemaDePersistencia;
-import junit.framework.Assert;
+
 
 public class ParqueaderoTest {
 	

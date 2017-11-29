@@ -3,6 +3,7 @@ package co.ceiba.parqueadero;
 import javax.inject.Named;
 
 import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

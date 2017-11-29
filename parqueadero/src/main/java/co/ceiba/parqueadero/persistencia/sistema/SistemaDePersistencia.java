@@ -13,27 +13,24 @@ import co.ceiba.parqueadero.persistencia.repositorio.RepositorioRegistro;
 public class SistemaDePersistencia {
 	
 	public EntityManager entityManager;
-	private IRepositorioMotos repositorioMotos;
+	/*private IRepositorioMotos repositorioMotos;
 	private IRepositorioCarros repositorioCarros;
 	private IRepositorioRegistro repositorioRegistro;
-	
+	*/
 	public SistemaDePersistencia() {
 		this.entityManager = new ConexionJPA().createEntityManager();
-		this.repositorioMotos = new RepositorioMotos(entityManager);
-		this.repositorioCarros = new RepositorioCarros(entityManager);
-		this.repositorioRegistro = new RepositorioRegistro(entityManager, repositorioCarros, repositorioMotos);
 	}
 	
 	public IRepositorioMotos getRepositorioMotos(){
-		return repositorioMotos;
+		return new RepositorioMotos(entityManager);
 	}
 	
 	public IRepositorioCarros getRepositorioCarros(){
-		return repositorioCarros;
+		return new RepositorioCarros(entityManager);
 	}
 	
 	public IRepositorioRegistro getRepositorioRegistro(){
-		return repositorioRegistro;
+		return  new RepositorioRegistro(entityManager, getRepositorioCarros(), getRepositorioMotos());
 	}
 	
 	public void iniciar() {

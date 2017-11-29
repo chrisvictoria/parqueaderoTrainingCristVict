@@ -2,17 +2,17 @@ package co.ceiba.parqueadero.negocio;
 
 
 import java.util.Date;
-
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
+*/
 import co.ceiba.parqueadero.negocio.excepcion.VehiculoException;
 import co.ceiba.parqueadero.persistencia.sistema.SistemaDePersistencia;
 
-@Scope(value = "application")
-@Component
+//@Scope(value = "application")
+//@Component
 public class Parqueadero {
 	
 	public static final String VEHICULO_ESTA_EN_PARQUEADERO = "Ya se ecuentra un vehiculo con la placa en el parqueadero";
@@ -20,16 +20,16 @@ public class Parqueadero {
 	public static final String PARQUEADERO_MOTOS_LLENO = "El parqueadero de motos esta lleno";
 	public static final String PARQUEADERO_CARROS_LLENO = "El parqueadero de carros esta lleno";
 	
-	@Autowired
+	//@Autowired
 	private IVigilar vigilante;
-	@Autowired
+	//@Autowired
 	private SistemaDePersistencia sistemaDePersistencia;
 	private IEstrategiaCobro estrategiaCobroCarro;
 	private IEstrategiaCobro estrategiaCobroMoto;
 	
-	@Value("20")
+	//@Value("20")
 	private int capacidadMaximaCarros;
-	@Value("10")
+	//@Value("10")
 	private int capacidadMaximaMotos;	
 	
 	private int cantidadMotos = 0;
