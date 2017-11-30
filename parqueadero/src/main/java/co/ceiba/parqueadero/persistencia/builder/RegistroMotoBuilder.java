@@ -2,6 +2,7 @@ package co.ceiba.parqueadero.persistencia.builder;
 
 import co.ceiba.parqueadero.negocio.Registro;
 import co.ceiba.parqueadero.persistencia.entidad.MotoEntity;
+import co.ceiba.parqueadero.persistencia.entidad.RegistroCarroEntity;
 import co.ceiba.parqueadero.persistencia.entidad.RegistroMotoEntity;
 
 public class RegistroMotoBuilder {
@@ -20,5 +21,12 @@ public class RegistroMotoBuilder {
 			registro = new Registro(registroMotoEntity.getFechaEntrada(), registroMotoEntity.getFechaSalida(), MotoBuilder.convertirADominio(registroMotoEntity.getMotoEntity()), registroMotoEntity.getValor());
 		}
 		return registro;
+	}
+	
+	public static RegistroMotoEntity actualizarDatosEntity(RegistroMotoEntity registroMotoEntity, Registro registro){
+		registroMotoEntity.setFechaEntrada(registro.getFechaEntrada());
+		registroMotoEntity.setFechaSalida(registro.getFechaSalida());
+		registroMotoEntity.setValor(registro.getValor());
+		return registroMotoEntity;
 	}
 }

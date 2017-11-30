@@ -3,7 +3,11 @@ package co.ceiba.parqueadero.persistencia.repositorio;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import co.ceiba.parqueadero.negocio.Registro;
 import co.ceiba.parqueadero.negocio.repositorio.IRepositorioCarros;
@@ -16,15 +20,21 @@ import co.ceiba.parqueadero.persistencia.entidad.MotoEntity;
 import co.ceiba.parqueadero.persistencia.entidad.RegistroCarroEntity;
 import co.ceiba.parqueadero.persistencia.entidad.RegistroMotoEntity;
 
+@Repository
 public class RepositorioRegistro implements IRepositorioRegistro{
 	
 	private static final String CARRO_FIND_BY_PLACA = "RegistroCarro.findByPlaca";
 	private static final String MOTO_FIND_BY_PLACA = "RegistroMoto.findByPlaca";
 	private static final String PLACA = "placa";
 
+	@PersistenceContext
 	private EntityManager entityManager;
+	@Autowired
 	private IRepositorioCarros repositorioCarros;
+	@Autowired
 	private IRepositorioMotos repositorioMotos;
+	
+	public RepositorioRegistro(){}
 	
 	public RepositorioRegistro(EntityManager entityManager, IRepositorioCarros repositorioCarros, IRepositorioMotos repositorioMotos){
 		this.entityManager = entityManager;
@@ -85,5 +95,12 @@ public class RepositorioRegistro implements IRepositorioRegistro{
 		RegistroCarroEntity registroCarroEntity = obtenerRegistroCarroEntityPorPlaca(registro.getVehiculo().getPlaca());
 		RegistroCarroBuilder.actualizarDatosEntity(registroCarroEntity, registro);
 		entityManager.persist(registroCarroEntity);		
+	}
+	
+	@Override
+	public void actualizarRegistroMoto(Registro registro){
+		RegistroMotoEntity registroMotoEntity = obtenerRegistroMotoEntityPorPlaca(registro.getVehiculo().getPlaca());
+		RegistroMotoBuilder.actualizarDatosEntity(registroMotoEntity, registro);
+		entityManager.persist(registroMotoEntity);
 	}
 }

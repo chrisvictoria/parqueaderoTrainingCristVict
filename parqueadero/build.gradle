@@ -28,6 +28,7 @@ dependencies {
 
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-jersey")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
 }
 
 test {
@@ -38,5 +39,5 @@ test {
 	reports.junitXml.destination = file("jacoco/test-results")
 }
 
-sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDir
+sourceSets.test.output.resourcesDir = sourceSets.main.output.classesDir
 compileJava.dependsOn(processResources)

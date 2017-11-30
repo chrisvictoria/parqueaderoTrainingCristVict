@@ -1,5 +1,8 @@
 package co.ceiba.parqueadero.persistencia.builder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.ceiba.parqueadero.negocio.Carro;
 import co.ceiba.parqueadero.persistencia.entidad.CarroEntity;
 
@@ -11,6 +14,19 @@ public class CarroBuilder {
 			carro = new Carro(carroEntity.getPlaca());
 		}
 		return carro;
+	}
+	
+	@SuppressWarnings("null")
+	public static ArrayList<Carro> convertirListaADominio(List<CarroEntity> carroEntityList){
+		ArrayList<Carro> carroList = new ArrayList<Carro>();
+		if(carroEntityList != null){
+			ArrayList<CarroEntity> array = new ArrayList<CarroEntity>(carroEntityList);
+			for(CarroEntity entity : array){
+				Carro carro = convertirADominio(entity);
+				carroList.add(carro);
+			}
+		}
+		return carroList;
 	}
 	
 	public static CarroEntity convertirAEntity(Carro carro){

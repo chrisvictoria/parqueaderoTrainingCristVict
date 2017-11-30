@@ -9,6 +9,9 @@ public class Registro {
 	private double valor;
 	private Vehiculo vehiculo;
 	
+	public Registro(){
+	}
+	
 	public Registro(Date fechaEntrada, Date fechaSalida, Vehiculo vehiculo, double valor) {
 		super();
 		this.fechaEntrada = fechaEntrada;

@@ -1,8 +1,11 @@
 package co.ceiba.parqueadero.negocio;
 
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,10 +13,14 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import co.ceiba.parqueadero.negocio.excepcion.VehiculoException;
+import co.ceiba.parqueadero.negocio.repositorio.IRepositorioCarros;
+import co.ceiba.parqueadero.negocio.repositorio.IRepositorioMotos;
+import co.ceiba.parqueadero.negocio.repositorio.IRepositorioRegistro;
 import co.ceiba.parqueadero.persistencia.sistema.SistemaDePersistencia;
 
 @Scope(value = "application")
 @Component
+@Transactional
 public class Parqueadero {
 	
 	public static final String VEHICULO_ESTA_EN_PARQUEADERO = "Ya se ecuentra un vehiculo con la placa en el parqueadero.";
@@ -21,10 +28,16 @@ public class Parqueadero {
 	public static final String PARQUEADERO_MOTOS_LLENO = "El parqueadero de motos esta lleno.";
 	public static final String PARQUEADERO_CARROS_LLENO = "El parqueadero de carros esta lleno.";
 	public static final String VEHICULO_DIA_NO_PERMITIDO = "El vehiculo no tiene permitido entrar al parqueadero porque la placa comienza con A.";
+	public static final String VEHICULO_NO_REGISTRADO = "El vehiculo no esta registrado en la BD.";
 	
 	private IVigilar vigilante;
 	
-	private SistemaDePersistencia sistemaDePersistencia;
+	@Autowired
+	private IRepositorioRegistro repositorioRegistro;
+	@Autowired
+	private IRepositorioCarros repositorioCarros;
+	@Autowired
+	private IRepositorioMotos repositorioMotos;
 	
 	private IEstrategiaCobro estrategiaCobroCarro;
 	private IEstrategiaCobro estrategiaCobroMoto;	
@@ -37,13 +50,22 @@ public class Parqueadero {
 	private int cantidadCarros = 0;
 	
 	@Autowired
-	public Parqueadero(@Value("20")int capacidadMaximaCarros,@Value("10") int capacidadMaximaMotos, SistemaDePersistencia sistemaDePersistencia, IVigilar vigilante, IEstrategiaCobro estrategiaCobroCarro, IEstrategiaCobro estrategiaCobroMoto){
+	public Parqueadero( @Value("20")int capacidadMaximaCarros,
+						@Value("10") int capacidadMaximaMotos, 
+						IVigilar vigilante, 
+						IEstrategiaCobro estrategiaCobroCarro, 
+						IEstrategiaCobro estrategiaCobroMoto, 
+						IRepositorioRegistro repositorioRegistro,
+						IRepositorioCarros repositorioCarros,
+						IRepositorioMotos repositorioMotos){
 		this.capacidadMaximaCarros = capacidadMaximaCarros;
 		this.capacidadMaximaMotos = capacidadMaximaMotos;
 		this.vigilante = vigilante;
-		this.sistemaDePersistencia = sistemaDePersistencia;
 		this.estrategiaCobroCarro = estrategiaCobroCarro;
 		this.estrategiaCobroMoto = estrategiaCobroMoto;
+		this.repositorioRegistro = repositorioRegistro;
+		this.repositorioCarros = repositorioCarros;
+		this.repositorioMotos = repositorioMotos;
 	}
 	
 	public IVigilar getVigilante() {
@@ -70,14 +92,26 @@ public class Parqueadero {
 		return cantidadCarros;
 	}
 		
-	private void revisarPlacaPermiso(Registro registro){
+	private void revisarPlacaPermiso(Date fechaEntrada, String placa){
 		Calendar iniCal = Calendar.getInstance();
-		iniCal.setTime(registro.getFechaEntrada());
+		iniCal.setTime(fechaEntrada);
 		int diaSemana = iniCal.get(Calendar.DAY_OF_WEEK);
-		if(registro.getVehiculo().getPlaca().toLowerCase().substring(0,1).equals("a")  && (diaSemana != Calendar.SUNDAY && diaSemana != Calendar.MONDAY)){
+		if(placa.toLowerCase().substring(0,1).equals("a")  && (diaSemana != Calendar.SUNDAY && diaSemana != Calendar.MONDAY)){
 			throw new VehiculoException(VEHICULO_DIA_NO_PERMITIDO);
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<Carro> obtenerCarros(){
+		return (ArrayList<Carro>)repositorioCarros.obtenerTodos();
+	}
+	
+	public void registrarCarro(Carro carro){
+		Carro carroBD = (Carro) repositorioCarros.obtenerPorPlaca(carro.getPlaca());
+		if(carroBD == null){
+			repositorioCarros.agregar(carro);
+		}
+	}	
 	
 	public void registrarEntradaCarro(Vehiculo vehiculo, Date fechaEntrada){
 		if(estaCarroEnParqueadero(vehiculo)){
@@ -87,12 +121,16 @@ public class Parqueadero {
 			throw new VehiculoException(PARQUEADERO_CARROS_LLENO);
 		}
 		vigilante.revisarVehiculo(vehiculo);
+		revisarPlacaPermiso(fechaEntrada, vehiculo.getPlaca());
 		
-		Registro registro = new Registro(fechaEntrada, null , vehiculo, 0.0);
-		revisarPlacaPermiso(registro);
+		Carro carro = (Carro) repositorioCarros.obtenerPorPlaca(vehiculo.getPlaca());
+		if(carro == null){
+			throw new VehiculoException(VEHICULO_NO_REGISTRADO);
+		}
 		
-		sistemaDePersistencia.getRepositorioCarros().agregar(vehiculo);
-		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroCarro(registro);
+		Registro registro = new Registro(fechaEntrada, null , carro, 0.0);		
+		
+		repositorioRegistro.agregarRegistroCarro(registro);
 		cantidadCarros += 1;
 	}
 	
@@ -101,12 +139,19 @@ public class Parqueadero {
 			throw new VehiculoException(VEHICULO_NO_ESTA_EN_PARQUEADERO);
 		}
 		vigilante.revisarVehiculo(vehiculo);
-		Registro registro = sistemaDePersistencia.getRepositorioRegistro().obtenerUltimoRegistroCarroPorPlaca(vehiculo.getPlaca());
+		Registro registro = repositorioRegistro.obtenerUltimoRegistroCarroPorPlaca(vehiculo.getPlaca());
 		registro.setFechaSalida(fechaSalida);
 		cobrarCarro(registro);
-		sistemaDePersistencia.getRepositorioRegistro().actualizarRegistroCarro(registro);
+		repositorioRegistro.actualizarRegistroCarro(registro);
 		cantidadCarros -= 1;
 		return registro.getValor();
+	}
+	
+	public void registrarMoto(Moto moto){
+		Moto motoBD = (Moto) repositorioMotos.obtenerPorPlaca(moto.getPlaca());
+		if(motoBD == null){
+			repositorioMotos.agregar(moto);
+		}		
 	}
 	
 	public void registrarEntradaMoto(Vehiculo vehiculo, Date fechaEntrada){
@@ -117,27 +162,33 @@ public class Parqueadero {
 			throw new VehiculoException(PARQUEADERO_MOTOS_LLENO);
 		}
 		vigilante.revisarVehiculo(vehiculo);
+		revisarPlacaPermiso(fechaEntrada, vehiculo.getPlaca());
 		
-		Registro registro = new Registro(fechaEntrada, null, vehiculo, 0.0);
-		revisarPlacaPermiso(registro);
+		Moto moto = (Moto) repositorioMotos.obtenerPorPlaca(vehiculo.getPlaca());
 		
-		sistemaDePersistencia.getRepositorioMotos().agregar (vehiculo);		
-		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroMoto(registro);
+		if(moto == null){
+			throw new VehiculoException(VEHICULO_NO_REGISTRADO);
+		}
+		
+		Registro registro = new Registro(fechaEntrada, null, moto, 0.0);
+		repositorioRegistro.agregarRegistroMoto(registro);
 		cantidadMotos += 1;
-	}
+	}	
 	
-	/*
-	public void registrarSalidaMoto(Vehiculo vehiculo){
+	public double registrarSalidaMoto(Vehiculo vehiculo, Date fechaSalida){
 		if(!estaMotoEnParqueadero(vehiculo)){
 			throw new VehiculoException(VEHICULO_NO_ESTA_EN_PARQUEADERO);
 		}
 		vigilante.revisarVehiculo(vehiculo);
-		sistemaDePersistencia.getRepositorioMotos().agregar(vehiculo);
-		Registro registro = new Registro(new Date(), Registro.TIPO_SALIDA , vehiculo);
-		sistemaDePersistencia.getRepositorioRegistro().agregarRegistroMoto(registro);
+		
+		Registro registro = repositorioRegistro.obtenerUltimoRegistroMotoPorPlaca(vehiculo.getPlaca());
+		registro.setFechaSalida(fechaSalida);
+		cobrarMoto(registro);
+		repositorioRegistro.actualizarRegistroMoto(registro);
 		cantidadMotos -= 1;
+		return registro.getValor();
 	}
-	*/
+	
 	private void cobrarMoto(Registro registro){
 		Moto moto = (Moto)registro.getVehiculo();
 		double valor = estrategiaCobroMoto.cobrar(registro.getFechaEntrada(), registro.getFechaSalida(), moto.getCilindraje());
@@ -150,12 +201,12 @@ public class Parqueadero {
 	}
 	
 	public boolean estaCarroEnParqueadero(Vehiculo vehiculo){
-		Registro registro = sistemaDePersistencia.getRepositorioRegistro().obtenerUltimoRegistroCarroPorPlaca(vehiculo.getPlaca());
+		Registro registro = repositorioRegistro.obtenerUltimoRegistroCarroPorPlaca(vehiculo.getPlaca());
 		return registro != null && registro.getFechaSalida() == null ? true : false;
 	}
 	
 	public boolean estaMotoEnParqueadero(Vehiculo vehiculo){
-		Registro registro = sistemaDePersistencia.getRepositorioRegistro().obtenerUltimoRegistroMotoPorPlaca(vehiculo.getPlaca());
+		Registro registro = repositorioRegistro.obtenerUltimoRegistroMotoPorPlaca(vehiculo.getPlaca());
 		return registro != null && registro.getFechaSalida() == null ? true : false;
 	}
 }
