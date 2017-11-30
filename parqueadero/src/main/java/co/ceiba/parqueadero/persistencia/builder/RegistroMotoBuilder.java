@@ -1,5 +1,8 @@
 package co.ceiba.parqueadero.persistencia.builder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import co.ceiba.parqueadero.negocio.Registro;
 import co.ceiba.parqueadero.persistencia.entidad.MotoEntity;
 import co.ceiba.parqueadero.persistencia.entidad.RegistroCarroEntity;
@@ -21,6 +24,18 @@ public class RegistroMotoBuilder {
 			registro = new Registro(registroMotoEntity.getFechaEntrada(), registroMotoEntity.getFechaSalida(), MotoBuilder.convertirADominio(registroMotoEntity.getMotoEntity()), registroMotoEntity.getValor());
 		}
 		return registro;
+	}
+	
+	public static ArrayList<Registro> convertirListaADominio(List<RegistroMotoEntity> registroMotoEntityList){
+		ArrayList<Registro> registroList = new ArrayList<Registro>();
+		if(registroMotoEntityList != null){
+			ArrayList<RegistroMotoEntity> array = new ArrayList<RegistroMotoEntity>(registroMotoEntityList);
+			for(RegistroMotoEntity entity : array){
+				Registro registro = convertirADominio(entity);
+				registroList.add(registro);
+			}
+		}
+		return registroList;
 	}
 	
 	public static RegistroMotoEntity actualizarDatosEntity(RegistroMotoEntity registroMotoEntity, Registro registro){

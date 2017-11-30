@@ -5,10 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 
 @Entity(name = "Moto")
-@NamedQuery(name = "Moto.findByPlaca", query = "SELECT moto FROM Moto moto WHERE moto.placa = :placa")
+@NamedQueries({
+	@NamedQuery(name = "Moto.findByPlaca", query = "SELECT moto FROM Moto moto WHERE moto.placa = :placa"),
+	@NamedQuery(name = "Moto.all", query = "SELECT moto FROM Moto moto")
+})
 public class MotoEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

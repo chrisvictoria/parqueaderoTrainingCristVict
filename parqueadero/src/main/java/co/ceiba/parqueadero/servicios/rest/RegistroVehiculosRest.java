@@ -3,9 +3,7 @@ package co.ceiba.parqueadero.servicios.rest;
 import java.text.ParseException;
 import java.util.List;
 
-import javax.inject.Named;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -18,8 +16,8 @@ import org.springframework.stereotype.Component;
 import co.ceiba.parqueadero.negocio.Carro;
 import co.ceiba.parqueadero.negocio.Moto;
 import co.ceiba.parqueadero.negocio.Parqueadero;
+import co.ceiba.parqueadero.negocio.Registro;
 import co.ceiba.parqueadero.negocio.excepcion.VehiculoException;
-import co.ceiba.parqueadero.servicios.IRegistroVehiculos;
 
 @Component
 @Path("/registrar")
@@ -99,9 +97,30 @@ public class RegistroVehiculosRest{
 	}
 	*/
 	@GET
+	@Path("getCarrosEnParqueadero")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Registro> getCarrosEnParqueadero() {
+		return parqueadero.obtenerCarrosEnParqueadero();
+	}
+	
+	@GET
+	@Path("getMotosEnParqueadero")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Registro> getMotosEnParqueadero() {
+		return parqueadero.obtenerMotosEnParqueadero();
+	}
+	
+	@GET
 	@Path("getCarros")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Carro> getCarros() {
 		return parqueadero.obtenerCarros();
+	}
+	
+	@GET
+	@Path("getMotos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Moto> getMotos() {
+		return parqueadero.obtenerMotos();
 	}
 }

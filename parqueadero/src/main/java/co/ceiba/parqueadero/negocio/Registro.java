@@ -2,6 +2,9 @@ package co.ceiba.parqueadero.negocio;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Registro {
 	
 	private Date fechaEntrada;

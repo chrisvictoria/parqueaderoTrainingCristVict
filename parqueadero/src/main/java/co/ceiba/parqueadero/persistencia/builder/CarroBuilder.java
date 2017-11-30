@@ -16,7 +16,6 @@ public class CarroBuilder {
 		return carro;
 	}
 	
-	@SuppressWarnings("null")
 	public static ArrayList<Carro> convertirListaADominio(List<CarroEntity> carroEntityList){
 		ArrayList<Carro> carroList = new ArrayList<Carro>();
 		if(carroEntityList != null){

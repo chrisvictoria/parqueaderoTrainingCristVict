@@ -1,5 +1,6 @@
 package co.ceiba.parqueadero.negocio;
 
+
 public abstract class Vehiculo {
 	String placa;
 	String tipoVehiculo;

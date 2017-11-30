@@ -1,5 +1,6 @@
 package co.ceiba.parqueadero.persistencia.repositorio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -26,6 +27,8 @@ public class RepositorioRegistro implements IRepositorioRegistro{
 	private static final String CARRO_FIND_BY_PLACA = "RegistroCarro.findByPlaca";
 	private static final String MOTO_FIND_BY_PLACA = "RegistroMoto.findByPlaca";
 	private static final String PLACA = "placa";
+	private static final String REGISTRO_CARROS_EN_PARQUEADERO = "RegistroCarro.enParqueadero";
+	private static final String REGISTRO_MOTOS_EN_PARQUEADERO = "RegistroMoto.enParqueadero";
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -102,5 +105,20 @@ public class RepositorioRegistro implements IRepositorioRegistro{
 		RegistroMotoEntity registroMotoEntity = obtenerRegistroMotoEntityPorPlaca(registro.getVehiculo().getPlaca());
 		RegistroMotoBuilder.actualizarDatosEntity(registroMotoEntity, registro);
 		entityManager.persist(registroMotoEntity);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<Registro> obtenerRegistrosCarros() {
+		Query query = entityManager.createNamedQuery(REGISTRO_CARROS_EN_PARQUEADERO);
+		List<RegistroCarroEntity> resultList = query.getResultList();
+		return RegistroCarroBuilder.convertirListaADominio(resultList);
+	}
+
+	@Override
+	public ArrayList<Registro> obtenerRegistrosMotos() {
+		Query query = entityManager.createNamedQuery(REGISTRO_MOTOS_EN_PARQUEADERO);
+		List<RegistroMotoEntity> resultList = query.getResultList();
+		return RegistroMotoBuilder.convertirListaADominio(resultList);
 	}
 }

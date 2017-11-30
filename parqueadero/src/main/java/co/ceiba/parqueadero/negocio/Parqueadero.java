@@ -16,7 +16,6 @@ import co.ceiba.parqueadero.negocio.excepcion.VehiculoException;
 import co.ceiba.parqueadero.negocio.repositorio.IRepositorioCarros;
 import co.ceiba.parqueadero.negocio.repositorio.IRepositorioMotos;
 import co.ceiba.parqueadero.negocio.repositorio.IRepositorioRegistro;
-import co.ceiba.parqueadero.persistencia.sistema.SistemaDePersistencia;
 
 @Scope(value = "application")
 @Component
@@ -154,6 +153,11 @@ public class Parqueadero {
 		}		
 	}
 	
+	@SuppressWarnings("unchecked")
+	public ArrayList<Moto> obtenerMotos(){
+		return (ArrayList<Moto>)repositorioMotos.obtenerTodos();
+	}
+	
 	public void registrarEntradaMoto(Vehiculo vehiculo, Date fechaEntrada){
 		if(estaMotoEnParqueadero(vehiculo)){
 			throw new VehiculoException(VEHICULO_ESTA_EN_PARQUEADERO);
@@ -187,6 +191,14 @@ public class Parqueadero {
 		repositorioRegistro.actualizarRegistroMoto(registro);
 		cantidadMotos -= 1;
 		return registro.getValor();
+	}
+	
+	public ArrayList<Registro> obtenerMotosEnParqueadero(){
+		return repositorioRegistro.obtenerRegistrosMotos();
+	}
+	
+	public ArrayList<Registro> obtenerCarrosEnParqueadero(){
+		return repositorioRegistro.obtenerRegistrosCarros();
 	}
 	
 	private void cobrarMoto(Registro registro){

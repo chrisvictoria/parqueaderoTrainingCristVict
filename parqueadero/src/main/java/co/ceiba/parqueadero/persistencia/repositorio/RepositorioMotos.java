@@ -19,6 +19,7 @@ import co.ceiba.parqueadero.persistencia.entidad.MotoEntity;
 public class RepositorioMotos implements IRepositorioMotos{
 	private static final String PLACA = "placa";
 	private static final String MOTO_FIND_BY_PLACA = "Moto.findByPlaca";
+	private static final String MOTO_ALL = "Moto.all";
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -54,9 +55,11 @@ public class RepositorioMotos implements IRepositorioMotos{
 		return !resultList.isEmpty() ? (MotoEntity) resultList.get(0) : null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<Moto> obtenerTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = entityManager.createNamedQuery(MOTO_ALL);
+		List<MotoEntity> resultList = query.getResultList();
+		return MotoBuilder.convertirListaADominio(resultList);
 	}
 }
