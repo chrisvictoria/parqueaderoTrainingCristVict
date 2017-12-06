@@ -33,10 +33,8 @@ public class RegistroVehiculosRest{
 	@Produces(MediaType.TEXT_PLAIN)
 	@Path("/entradaVehiculo")
 	public String registrarEntradaVehiculo(RegistroParamsWrapper registroParamsWrapper) {
-		System.out.println("aca1"+registroParamsWrapper.getTipo());
 		try{
 			if(registroParamsWrapper.getTipo().equals("Carro")){
-				System.out.println("Entro Carro");
 				Carro carro = registroParamsWrapper.getCarro();
 				parqueadero.registrarCarro(carro);
 				parqueadero.registrarEntradaCarro(carro, registroParamsWrapper.getDateEntrada());
@@ -50,52 +48,31 @@ public class RegistroVehiculosRest{
 		}catch (ParseException e) {
 			return e.getMessage();
 		}
-		System.out.println("salio");
-		return REGISTRO_ALMACENADO;
-	}
-	/*
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("/salida/carro")
-	public String registrarSalidaCarro(Carro carro) {
-		double varlor = 0.0;
-		try{
-			varlor = parqueadero.registrarSalidaCarro(carro, new Date());
-		} catch (VehiculoException e) {
-			return e.getMessage();
-		}
-		return REGISTRO_ALMACENADO+" Valor a pagar:"+ varlor;
-	}
-	
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	@Path("/entrada/moto")
-	public String registrarEntradaMoto(Moto moto) {
-		try{
-			parqueadero.registrarMoto(moto);
-			parqueadero.registrarEntradaMoto(moto, new Date());
-		} catch (VehiculoException e) {
-			return e.getMessage();
-		}
 		return REGISTRO_ALMACENADO;
 	}
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	@Path("/salida/moto")
-	public String registrarSalidaMoto(Moto moto) {
+	@Path("/salidaVehiculo")
+	public String registrarSalidaVehiculo(RegistroParamsWrapper registroParamsWrapper) {
 		double varlor = 0.0;
 		try{
-			varlor = parqueadero.registrarSalidaMoto(moto, new Date());
+			if(registroParamsWrapper.getTipo().equals("Carro")){
+				Carro carro = registroParamsWrapper.getCarro();
+				varlor = parqueadero.registrarSalidaCarro(carro, registroParamsWrapper.getDateSalida());
+			}else if(registroParamsWrapper.getTipo().equals("Moto")){
+				Moto moto = registroParamsWrapper.getMoto();
+				varlor = parqueadero.registrarSalidaMoto(moto, registroParamsWrapper.getDateSalida());
+			}			
 		} catch (VehiculoException e) {
+			return e.getMessage();
+		}catch (ParseException e) {
 			return e.getMessage();
 		}
 		return REGISTRO_ALMACENADO+" Valor a pagar:"+ varlor;
 	}
-	*/
+	
 	@GET
 	@Path("getCarrosEnParqueadero")
 	@Produces(MediaType.APPLICATION_JSON)

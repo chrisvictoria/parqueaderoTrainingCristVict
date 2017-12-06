@@ -13,7 +13,7 @@ import javax.persistence.NamedQuery;
 
 @Entity(name="RegistroCarro")
 @NamedQueries({
-	@NamedQuery(name = "RegistroCarro.findByPlaca", query = "SELECT registrocarro FROM RegistroCarro registrocarro WHERE registrocarro.fechaEntrada = (select max(a.fechaEntrada) FROM RegistroCarro a where a.carroEntity.placa = :placa) and registrocarro.carroEntity.placa = :placa"),
+	@NamedQuery(name = "RegistroCarro.findByPlaca", query = "SELECT registrocarro FROM RegistroCarro registrocarro WHERE registrocarro.fechaEntrada is not null and registrocarro.fechaSalida is null and registrocarro.carroEntity.placa = :placa"),
 	@NamedQuery(name = "RegistroCarro.enParqueadero", query = "SELECT registrocarro FROM RegistroCarro registrocarro WHERE registrocarro.fechaSalida is null")
 })
 public class RegistroCarroEntity {

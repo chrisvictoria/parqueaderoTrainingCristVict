@@ -3,11 +3,13 @@ package co.ceiba.parqueadero.negocio;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement
 public class Registro {
-	
+	@XmlJavaTypeAdapter(MyDateAdapter.class)
 	private Date fechaEntrada;
+	@XmlJavaTypeAdapter(MyDateAdapter.class)
 	private Date fechaSalida;
 	private double valor;
 	private Vehiculo vehiculo;

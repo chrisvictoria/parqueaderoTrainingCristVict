@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2017-11-30T21:29:10" hostname="CRISTIAN-VICTORIA" time="4.653">
+<testsuite name="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2017-12-06T13:21:05" hostname="CRISTIAN-VICTORIA" time="4.826">
   <properties/>
-  <testcase name="registrarEntradaMismaMotoVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="2.926"/>
-  <testcase name="registrarSalidaMismaMotoVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.177"/>
+  <testcase name="registrarEntradaMismaMotoVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="2.914"/>
+  <testcase name="registrarSalidaMismaMotoVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.176"/>
   <testcase name="registrarEntradaCarroPlacaIniConAUnMiercolesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.125"/>
-  <testcase name="registrarEntradaMotoPlacaIniConAUnLunesODomingoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.114"/>
-  <testcase name="registrarEntradaMotoPlacaIniConAUnMiercolesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.103"/>
-  <testcase name="registrarEntradaCarroPlacaIniConAUnLunesODomingoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.108"/>
-  <testcase name="registrarEntradaCarroTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.086"/>
-  <testcase name="registrarSalidaMismoCarroVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.092"/>
-  <testcase name="registrarEntradaMismoCarroVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.095"/>
-  <testcase name="registrarSalidaCarroTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.11"/>
-  <testcase name="registrarEntradaMotoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.103"/>
-  <testcase name="capacidadMaximaParqueaderoMotosTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.18"/>
-  <testcase name="capacidadMaximaParqueaderoCarrosTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.241"/>
-  <testcase name="registrarSalidaMotoCilindrajeAltoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.1"/>
-  <testcase name="registrarSalidaMotoCilindrajeBajoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.089"/>
+  <testcase name="registrarEntradaMotoPlacaIniConAUnLunesODomingoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.11"/>
+  <testcase name="registrarEntradaMotoPlacaIniConAUnMiercolesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.109"/>
+  <testcase name="registrarEntradaCarroPlacaIniConAUnLunesODomingoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.109"/>
+  <testcase name="registrarEntradaCarroTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.11"/>
+  <testcase name="registrarSalidaMismoCarroVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.122"/>
+  <testcase name="registrarEntradaMismoCarroVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.094"/>
+  <testcase name="registrarSalidaCarroTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.109"/>
+  <testcase name="registrarEntradaMotoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.125"/>
+  <testcase name="capacidadMaximaParqueaderoMotosTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.184"/>
+  <testcase name="capacidadMaximaParqueaderoCarrosTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.224"/>
+  <testcase name="registrarSalidaMotoCilindrajeAltoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.231"/>
+  <testcase name="registrarSalidaMotoCilindrajeBajoTest" classname="co.ceiba.parqueadero.negocio.integracion.ParqueaderoTest" time="0.084"/>
   <system-out><![CDATA[Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -31,14 +31,14 @@ Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf f
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -54,20 +54,20 @@ Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf f
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: update RegistroMoto set fechaEntrada=?, fechaSalida=?, ID_MOTO=?, valor=? where id=?
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -81,12 +81,9 @@ Hibernate: create table RegistroMoto (id bigint not null, fechaEntrada timestamp
 Hibernate: alter table RegistroCarro add constraint FK166r5ttf1ntgejsgd0pmgnppg foreign key (ID_CARRO) references Carro
 Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf foreign key (ID_MOTO) references Moto
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-A123
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: drop table Carro if exists
@@ -104,14 +101,14 @@ Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf f
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -127,7 +124,7 @@ Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf f
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: drop table Carro if exists
@@ -143,19 +140,16 @@ Hibernate: create table RegistroMoto (id bigint not null, fechaEntrada timestamp
 Hibernate: alter table RegistroCarro add constraint FK166r5ttf1ntgejsgd0pmgnppg foreign key (ID_CARRO) references Carro
 Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf foreign key (ID_MOTO) references Moto
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-A123
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -169,19 +163,16 @@ Hibernate: create table RegistroMoto (id bigint not null, fechaEntrada timestamp
 Hibernate: alter table RegistroCarro add constraint FK166r5ttf1ntgejsgd0pmgnppg foreign key (ID_CARRO) references Carro
 Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf foreign key (ID_MOTO) references Moto
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-123
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -195,25 +186,22 @@ Hibernate: create table RegistroMoto (id bigint not null, fechaEntrada timestamp
 Hibernate: alter table RegistroCarro add constraint FK166r5ttf1ntgejsgd0pmgnppg foreign key (ID_CARRO) references Carro
 Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf foreign key (ID_MOTO) references Moto
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-123
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Hibernate: update RegistroCarro set ID_CARRO=?, fechaEntrada=?, fechaSalida=?, valor=? where id=?
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -227,19 +215,16 @@ Hibernate: create table RegistroMoto (id bigint not null, fechaEntrada timestamp
 Hibernate: alter table RegistroCarro add constraint FK166r5ttf1ntgejsgd0pmgnppg foreign key (ID_CARRO) references Carro
 Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf foreign key (ID_MOTO) references Moto
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-123
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -253,25 +238,22 @@ Hibernate: create table RegistroMoto (id bigint not null, fechaEntrada timestamp
 Hibernate: alter table RegistroCarro add constraint FK166r5ttf1ntgejsgd0pmgnppg foreign key (ID_CARRO) references Carro
 Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf foreign key (ID_MOTO) references Moto
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-123
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Hibernate: update RegistroCarro set ID_CARRO=?, fechaEntrada=?, fechaSalida=?, valor=? where id=?
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -287,14 +269,14 @@ Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf f
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -310,7 +292,7 @@ Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf f
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -320,7 +302,7 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -330,7 +312,7 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -340,7 +322,7 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -350,7 +332,7 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -360,7 +342,7 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -370,7 +352,7 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -380,7 +362,7 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -390,7 +372,7 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
@@ -400,14 +382,14 @@ Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -421,266 +403,206 @@ Hibernate: create table RegistroMoto (id bigint not null, fechaEntrada timestamp
 Hibernate: alter table RegistroCarro add constraint FK166r5ttf1ntgejsgd0pmgnppg foreign key (ID_CARRO) references Carro
 Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf foreign key (ID_MOTO) references Moto
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-1
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-2
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-3
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-4
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-5
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-6
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-7
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-8
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-9
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-10
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-11
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-12
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-13
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-14
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-15
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-16
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-17
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-18
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-19
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
-ACA!!!
-20
 Hibernate: call next value for hibernate_sequence
-SALIO
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
 Hibernate: insert into Carro (placa, id) values (?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: select carroentit0_.id as id1_0_, carroentit0_.placa as placa2_0_ from Carro carroentit0_ where carroentit0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroCarro (ID_CARRO, fechaEntrada, fechaSalida, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit3_ where registroca0_.ID_CARRO=carroentit3_.id and registroca0_.fechaEntrada=(select max(registroca1_.fechaEntrada) from RegistroCarro registroca1_ cross join Carro carroentit2_ where registroca1_.ID_CARRO=carroentit2_.id and carroentit2_.placa=?) and carroentit3_.placa=?
+Hibernate: select registroca0_.id as id1_2_, registroca0_.ID_CARRO as ID_CARRO5_2_, registroca0_.fechaEntrada as fechaEnt2_2_, registroca0_.fechaSalida as fechaSal3_2_, registroca0_.valor as valor4_2_ from RegistroCarro registroca0_ cross join Carro carroentit1_ where registroca0_.ID_CARRO=carroentit1_.id and (registroca0_.fechaEntrada is not null) and (registroca0_.fechaSalida is null) and carroentit1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -696,20 +618,20 @@ Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf f
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: update RegistroMoto set fechaEntrada=?, fechaSalida=?, ID_MOTO=?, valor=? where id=?
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists
@@ -725,20 +647,20 @@ Hibernate: alter table RegistroMoto add constraint FKneu4r7skqkfbh4g2lbu3rg5nf f
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into Moto (cilindraje, placa, id) values (?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: select motoentity0_.id as id1_1_, motoentity0_.cilindraje as cilindra2_1_, motoentity0_.placa as placa3_1_ from Moto motoentity0_ where motoentity0_.placa=?
 Hibernate: call next value for hibernate_sequence
 Hibernate: insert into RegistroMoto (fechaEntrada, fechaSalida, ID_MOTO, valor, id) values (?, ?, ?, ?, ?)
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Vigilante revisa carro
 Vigilante dice todo esta bien
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 Hibernate: update RegistroMoto set fechaEntrada=?, fechaSalida=?, ID_MOTO=?, valor=? where id=?
-Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity3_ where registromo0_.ID_MOTO=motoentity3_.id and registromo0_.fechaEntrada=(select max(registromo1_.fechaEntrada) from RegistroMoto registromo1_ cross join Moto motoentity2_ where registromo1_.ID_MOTO=motoentity2_.id and motoentity2_.placa=?) and motoentity3_.placa=?
+Hibernate: select registromo0_.id as id1_3_, registromo0_.fechaEntrada as fechaEnt2_3_, registromo0_.fechaSalida as fechaSal3_3_, registromo0_.ID_MOTO as ID_MOTO5_3_, registromo0_.valor as valor4_3_ from RegistroMoto registromo0_ cross join Moto motoentity1_ where registromo0_.ID_MOTO=motoentity1_.id and (registromo0_.fechaEntrada is not null) and (registromo0_.fechaSalida is null) and motoentity1_.placa=?
 ]]></system-out>
   <system-err><![CDATA[log4j:WARN No appenders could be found for logger (org.jboss.logging).
 log4j:WARN Please initialize the log4j system properly.

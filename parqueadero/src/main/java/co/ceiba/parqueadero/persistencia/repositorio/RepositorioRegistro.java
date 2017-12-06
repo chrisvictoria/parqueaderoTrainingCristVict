@@ -115,6 +115,7 @@ public class RepositorioRegistro implements IRepositorioRegistro{
 		return RegistroCarroBuilder.convertirListaADominio(resultList);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public ArrayList<Registro> obtenerRegistrosMotos() {
 		Query query = entityManager.createNamedQuery(REGISTRO_MOTOS_EN_PARQUEADERO);

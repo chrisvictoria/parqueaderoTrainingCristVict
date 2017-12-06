@@ -39,10 +39,7 @@ public class RepositorioCarros implements IRepositorioCarros{
 	@Override
 	public void agregar(Vehiculo carro) {
 		CarroEntity carroEntity = buildCarroEntity((Carro)carro);
-		System.out.println("ACA!!!");
-		System.out.println(carroEntity.getPlaca());
 		entityManager.persist(carroEntity);
-		System.out.println("SALIO");
 	}
 	
 	private CarroEntity buildCarroEntity(Carro carro){

@@ -2,6 +2,7 @@ package co.ceiba.parqueadero.servicios.rest;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Date;
 
 import co.ceiba.parqueadero.negocio.Carro;
@@ -71,11 +72,15 @@ public class RegistroParamsWrapper{
 	}
 	
 	public Date getDateEntrada() throws ParseException{
-		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(fechaEntrada);
+		return new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(fechaEntrada);
+		//Instant instant = Instant.parse(fechaEntrada);
+		//return Date.from(instant);
 	}
 	
 	public Date getDateSalida() throws ParseException{
-		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(fechaSalida);
+		return new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(fechaSalida);
+		//Instant instant = Instant.parse(fechaSalida);
+		//return Date.from(instant);
 	}
 	
 	public Carro getCarro(){

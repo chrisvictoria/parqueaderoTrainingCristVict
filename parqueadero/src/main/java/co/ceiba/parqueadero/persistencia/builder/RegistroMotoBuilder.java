@@ -5,10 +5,14 @@ import java.util.List;
 
 import co.ceiba.parqueadero.negocio.Registro;
 import co.ceiba.parqueadero.persistencia.entidad.MotoEntity;
-import co.ceiba.parqueadero.persistencia.entidad.RegistroCarroEntity;
 import co.ceiba.parqueadero.persistencia.entidad.RegistroMotoEntity;
 
 public class RegistroMotoBuilder {
+	
+	private RegistroMotoBuilder() {
+	    throw new IllegalStateException("Utility class");
+	}
+	
 	public static RegistroMotoEntity convertirAEntity(Registro registro, MotoEntity motoEntity){
 		RegistroMotoEntity registroMotoEntity = new RegistroMotoEntity();
 		registroMotoEntity.setFechaEntrada(registro.getFechaEntrada());
@@ -27,9 +31,9 @@ public class RegistroMotoBuilder {
 	}
 	
 	public static ArrayList<Registro> convertirListaADominio(List<RegistroMotoEntity> registroMotoEntityList){
-		ArrayList<Registro> registroList = new ArrayList<Registro>();
+		ArrayList<Registro> registroList = new ArrayList<>();
 		if(registroMotoEntityList != null){
-			ArrayList<RegistroMotoEntity> array = new ArrayList<RegistroMotoEntity>(registroMotoEntityList);
+			ArrayList<RegistroMotoEntity> array = new ArrayList<>(registroMotoEntityList);
 			for(RegistroMotoEntity entity : array){
 				Registro registro = convertirADominio(entity);
 				registroList.add(registro);

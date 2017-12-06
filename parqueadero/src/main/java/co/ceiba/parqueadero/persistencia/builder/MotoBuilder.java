@@ -7,6 +7,11 @@ import co.ceiba.parqueadero.negocio.Moto;
 import co.ceiba.parqueadero.persistencia.entidad.MotoEntity;
 
 public class MotoBuilder {
+	
+	private MotoBuilder() {
+	    throw new IllegalStateException("Utility class");
+	}
+	
 	public static MotoEntity convertirAEntity(Moto moto){
 		MotoEntity motoEntity = new MotoEntity();
 		motoEntity.setPlaca(moto.getPlaca());
@@ -23,9 +28,9 @@ public class MotoBuilder {
 	}
 	
 	public static ArrayList<Moto> convertirListaADominio(List<MotoEntity> motoEntityList){
-		ArrayList<Moto> motoList = new ArrayList<Moto>();
+		ArrayList<Moto> motoList = new ArrayList<>();
 		if(motoEntityList != null){
-			ArrayList<MotoEntity> array = new ArrayList<MotoEntity>(motoEntityList);
+			ArrayList<MotoEntity> array = new ArrayList<>(motoEntityList);
 			for(MotoEntity entity : array){
 				Moto moto = convertirADominio(entity);
 				motoList.add(moto);

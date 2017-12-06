@@ -8,6 +8,10 @@ import co.ceiba.parqueadero.persistencia.entidad.CarroEntity;
 
 public class CarroBuilder {
 	
+	private CarroBuilder() {
+	    throw new IllegalStateException("Utility class");
+	}
+	
 	public static Carro convertirADominio(CarroEntity carroEntity){
 		Carro carro = null;
 		if(carroEntity != null){
@@ -17,9 +21,9 @@ public class CarroBuilder {
 	}
 	
 	public static ArrayList<Carro> convertirListaADominio(List<CarroEntity> carroEntityList){
-		ArrayList<Carro> carroList = new ArrayList<Carro>();
+		ArrayList<Carro> carroList = new ArrayList<>();
 		if(carroEntityList != null){
-			ArrayList<CarroEntity> array = new ArrayList<CarroEntity>(carroEntityList);
+			ArrayList<CarroEntity> array = new ArrayList<>(carroEntityList);
 			for(CarroEntity entity : array){
 				Carro carro = convertirADominio(entity);
 				carroList.add(carro);

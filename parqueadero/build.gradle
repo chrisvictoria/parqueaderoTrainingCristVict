@@ -1,13 +1,23 @@
-
-plugins {
-    id 'org.springframework.boot' version '1.5.8.RELEASE'
+buildscript {
+	ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: "jacoco"
+apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 
+group 'co.ceiba.parqueadero'
 
 jar {
 	baseName = 'parqueadero'
@@ -26,9 +36,11 @@ dependencies {
     testCompile 'junit:junit:4.12'
 	testCompile 'org.mockito:mockito-all:1.10.19'
 
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-jersey")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-jersey:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion")
+    compile "org.springframework.boot:spring-boot-devtools:$springBootVersion"
 }
 
 test {
@@ -40,4 +52,5 @@ test {
 }
 
 sourceSets.test.output.resourcesDir = sourceSets.main.output.classesDir
+sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDir
 compileJava.dependsOn(processResources)

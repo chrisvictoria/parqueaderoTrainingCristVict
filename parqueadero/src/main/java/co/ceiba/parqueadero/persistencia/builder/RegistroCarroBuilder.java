@@ -9,6 +9,10 @@ import co.ceiba.parqueadero.persistencia.entidad.RegistroCarroEntity;
 
 public class RegistroCarroBuilder {
 	
+	private RegistroCarroBuilder() {
+	    throw new IllegalStateException("Utility class");
+	}
+	
 	public static RegistroCarroEntity convertirAEntity(Registro registro, CarroEntity carroEntity){
 		RegistroCarroEntity registroCarroEntity = new RegistroCarroEntity();
 		registroCarroEntity.setFechaEntrada(registro.getFechaEntrada());
@@ -27,9 +31,9 @@ public class RegistroCarroBuilder {
 	}
 	
 	public static ArrayList<Registro> convertirListaADominio(List<RegistroCarroEntity> registroCarroEntityList){
-		ArrayList<Registro> registroList = new ArrayList<Registro>();
+		ArrayList<Registro> registroList = new ArrayList<>();
 		if(registroCarroEntityList != null){
-			ArrayList<RegistroCarroEntity> array = new ArrayList<RegistroCarroEntity>(registroCarroEntityList);
+			ArrayList<RegistroCarroEntity> array = new ArrayList<>(registroCarroEntityList);
 			for(RegistroCarroEntity entity : array){
 				Registro registro = convertirADominio(entity);
 				registroList.add(registro);

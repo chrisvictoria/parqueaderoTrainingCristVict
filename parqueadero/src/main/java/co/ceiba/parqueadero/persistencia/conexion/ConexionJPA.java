@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public class ConexionJPA {
 	
-	private static EntityManagerFactory entityManagerFactory;
+	private EntityManagerFactory entityManagerFactory;
 
 	public ConexionJPA() {
 		entityManagerFactory = Persistence.createEntityManagerFactory("parqueadero-pu-test");
