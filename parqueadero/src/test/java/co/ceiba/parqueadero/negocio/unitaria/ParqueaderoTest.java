@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import co.ceiba.parqueadero.negocio.Carro;
 import co.ceiba.parqueadero.negocio.EstrategiaCobroCarro;
 import co.ceiba.parqueadero.negocio.EstrategiaCobroMoto;
+import co.ceiba.parqueadero.negocio.IVigilar;
 import co.ceiba.parqueadero.negocio.Parqueadero;
 import co.ceiba.parqueadero.negocio.Vigilante;
 import co.ceiba.parqueadero.persistencia.repositorio.RepositorioCarros;
@@ -36,11 +37,10 @@ public class ParqueaderoTest {
 			carrosEsperado.add(carro);
 		}
 		when(repositorioCarros.obtenerTodos()).thenReturn(carrosEsperado);
+		IVigilar vigilante = new Vigilante("Pepe", new EstrategiaCobroCarro(1000.0, 8000.0, 9), new EstrategiaCobroMoto(500.0, 600.0, 9));
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 													CAPACIDAD_MAXIMA_MOTOS,
-													new Vigilante("Pepe"),
-													new EstrategiaCobroCarro(1000.0, 8000.0, 9),
-													new EstrategiaCobroMoto(500.0, 600.0, 9),
+													vigilante,
 													repositorioRegistro,
 													repositorioCarros,
 													repositorioMotos);

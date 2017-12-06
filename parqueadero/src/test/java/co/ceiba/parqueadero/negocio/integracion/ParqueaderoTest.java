@@ -38,8 +38,8 @@ public class ParqueaderoTest {
 	
 	private SistemaDePersistencia sistemaPersistencia;
 	private Vigilante  vigilante;
-	private IEstrategiaCobro estrategiaCoboMotos;
-	private IEstrategiaCobro estrategiaCoboCarros;
+	private IEstrategiaCobro estrategiaCobroMotos;
+	private IEstrategiaCobro estrategiaCobroCarros;
 	private IRepositorioRegistro repositorioRegistro;
 	private IRepositorioCarros repositorioCarros;
 	private IRepositorioMotos repositorioMotos;
@@ -50,14 +50,14 @@ public class ParqueaderoTest {
 		repositorioRegistro = sistemaPersistencia.getRepositorioRegistro();
 		repositorioCarros = sistemaPersistencia.getRepositorioCarros();
 		repositorioMotos = sistemaPersistencia.getRepositorioMotos();
-		vigilante = new Vigilante("Pepe");
 		sistemaPersistencia.iniciar();
 		miercoles = new SimpleDateFormat("yyyy-MM-dd").parse("2017-11-29");
 		lunes = new SimpleDateFormat("yyyy-MM-dd").parse("2017-11-27");
 		fechaEntrada = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-01-14 09:29:58");
 		fechaSalida = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-01-15 10:31:48");
-		estrategiaCoboMotos = new EstrategiaCobroMoto(500.0, 600.0, 9);
-		estrategiaCoboCarros = new EstrategiaCobroCarro(1000.0, 8000.0, 9);
+		estrategiaCobroMotos = new EstrategiaCobroMoto(500.0, 600.0, 9);
+		estrategiaCobroCarros = new EstrategiaCobroCarro(1000.0, 8000.0, 9);
+		vigilante = new Vigilante("Pepe", estrategiaCobroCarros, estrategiaCobroMotos);
 	}
 	
 	@After
@@ -70,9 +70,7 @@ public class ParqueaderoTest {
 		Carro carro = new Carro(PLACA);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 													CAPACIDAD_MAXIMA_MOTOS,
-													vigilante, 
-													estrategiaCoboCarros, 
-													estrategiaCoboMotos,
+													vigilante,
 													repositorioRegistro,
 													repositorioCarros,
 													repositorioMotos);
@@ -87,9 +85,7 @@ public class ParqueaderoTest {
 		Carro carro1 = new Carro(PLACA_INI_CON_A);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -98,7 +94,7 @@ public class ParqueaderoTest {
 			parqueadero.registrarEntradaCarro(carro1, miercoles);
 			fail();
 		} catch (VehiculoException e) {
-			Assert.assertEquals(Parqueadero.VEHICULO_DIA_NO_PERMITIDO, e.getMessage());
+			Assert.assertEquals(Vigilante.VEHICULO_DIA_NO_PERMITIDO, e.getMessage());
 		}
 	}
 	
@@ -107,9 +103,7 @@ public class ParqueaderoTest {
 		Carro carro1 = new Carro(PLACA_INI_CON_A);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -124,9 +118,7 @@ public class ParqueaderoTest {
 		Carro carro = new Carro(PLACA);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -144,9 +136,7 @@ public class ParqueaderoTest {
 	public void capacidadMaximaParqueaderoCarrosTest(){
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -170,9 +160,7 @@ public class ParqueaderoTest {
 		Carro carro = new Carro(PLACA);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -189,9 +177,7 @@ public class ParqueaderoTest {
 		Carro carro = new Carro(PLACA);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -211,9 +197,7 @@ public class ParqueaderoTest {
 		Moto moto = new Moto(PLACA, CILINDRAJE_ALTO);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -228,9 +212,7 @@ public class ParqueaderoTest {
 		Moto moto = new Moto(PLACA_INI_CON_A, CILINDRAJE_ALTO);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -239,7 +221,7 @@ public class ParqueaderoTest {
 			parqueadero.registrarEntradaMoto(moto, miercoles);
 			fail();
 		} catch (VehiculoException e) {
-			Assert.assertEquals(Parqueadero.VEHICULO_DIA_NO_PERMITIDO, e.getMessage());
+			Assert.assertEquals(Vigilante.VEHICULO_DIA_NO_PERMITIDO, e.getMessage());
 		}
 	}
 	
@@ -248,9 +230,7 @@ public class ParqueaderoTest {
 		Moto moto = new Moto(PLACA_INI_CON_A, CILINDRAJE_ALTO);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -265,9 +245,7 @@ public class ParqueaderoTest {
 		Moto moto = new Moto(PLACA, CILINDRAJE_ALTO);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -285,9 +263,7 @@ public class ParqueaderoTest {
 	public void capacidadMaximaParqueaderoMotosTest(){
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -311,9 +287,7 @@ public class ParqueaderoTest {
 		Moto moto = new Moto(PLACA, CILINDRAJE_ALTO);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -331,9 +305,7 @@ public class ParqueaderoTest {
 		Moto moto = new Moto(PLACA, CILINDRAJE_BAJO);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
@@ -350,9 +322,7 @@ public class ParqueaderoTest {
 		Moto moto = new Moto(PLACA, CILINDRAJE_ALTO);
 		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
 				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante, 
-				estrategiaCoboCarros, 
-				estrategiaCoboMotos,
+				vigilante,
 				repositorioRegistro,
 				repositorioCarros,
 				repositorioMotos);
