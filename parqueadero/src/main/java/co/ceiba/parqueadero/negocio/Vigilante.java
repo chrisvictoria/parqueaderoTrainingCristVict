@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
@@ -16,6 +18,7 @@ import co.ceiba.parqueadero.negocio.repositorio.IRepositorioRegistro;
 
 @Scope(value = "application")
 @Component
+@Transactional
 public class Vigilante implements IVigilar{
 	
 	public static final String VEHICULO_ESTA_EN_PARQUEADERO = "Ya se ecuentra un vehiculo con la placa en el parqueadero.";

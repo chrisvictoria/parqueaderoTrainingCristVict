@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 @Scope(value = "application")
 @Component
-@Transactional
 public class Parqueadero {
 
 	private int capacidadMaximaCarros;
