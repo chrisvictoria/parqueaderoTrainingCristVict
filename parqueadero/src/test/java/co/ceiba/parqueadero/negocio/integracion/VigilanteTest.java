@@ -26,7 +26,7 @@ import co.ceiba.parqueadero.negocio.repositorio.IRepositorioRegistro;
 import co.ceiba.parqueadero.persistencia.sistema.SistemaDePersistencia;
 
 
-public class ParqueaderoTest {
+public class VigilanteTest {
 	
 	private static final String PLACA = "123";
 	private static final String PLACA_INI_CON_A = "A123";
@@ -37,12 +37,12 @@ public class ParqueaderoTest {
 	private Date miercoles, lunes, fechaEntrada, fechaSalida;
 	
 	private SistemaDePersistencia sistemaPersistencia;
-	private Vigilante  vigilante;
 	private IEstrategiaCobro estrategiaCobroMotos;
 	private IEstrategiaCobro estrategiaCobroCarros;
 	private IRepositorioRegistro repositorioRegistro;
 	private IRepositorioCarros repositorioCarros;
 	private IRepositorioMotos repositorioMotos;
+	private Parqueadero parqueadero;
 
 	@Before
 	public void setUp() throws ParseException {		
@@ -57,7 +57,8 @@ public class ParqueaderoTest {
 		fechaSalida = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2012-01-15 10:31:48");
 		estrategiaCobroMotos = new EstrategiaCobroMoto(500.0, 600.0, 9);
 		estrategiaCobroCarros = new EstrategiaCobroCarro(1000.0, 8000.0, 9);
-		vigilante = new Vigilante("Pepe", estrategiaCobroCarros, estrategiaCobroMotos);
+		parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
+										CAPACIDAD_MAXIMA_MOTOS);
 	}
 	
 	@After
@@ -68,30 +69,32 @@ public class ParqueaderoTest {
 	@Test
 	public void registrarEntradaCarroTest(){		
 		Carro carro = new Carro(PLACA);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-													CAPACIDAD_MAXIMA_MOTOS,
-													vigilante,
-													repositorioRegistro,
-													repositorioCarros,
-													repositorioMotos);
-		parqueadero.registrarCarro(carro);
-		parqueadero.registrarEntradaCarro(carro, miercoles);
-		Assert.assertTrue(parqueadero.estaCarroEnParqueadero(carro));
+		Vigilante vigilante = new Vigilante("Pepe",
+											estrategiaCobroCarros,
+											estrategiaCobroMotos,
+											repositorioRegistro,
+											repositorioCarros,
+											repositorioMotos,
+											parqueadero);
+		vigilante.registrarCarro(carro);
+		vigilante.registrarEntradaCarro(carro, miercoles);
+		Assert.assertTrue(vigilante.estaCarroEnParqueadero(carro));
 		Assert.assertEquals(1, parqueadero.getCantidadCarros());
 	}
 	
 	@Test
 	public void registrarEntradaCarroPlacaIniConAUnMiercolesTest(){		
 		Carro carro1 = new Carro(PLACA_INI_CON_A);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
-				repositorioRegistro,
-				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarCarro(carro1);
+		Vigilante vigilante = new Vigilante("Pepe",
+											estrategiaCobroCarros,
+											estrategiaCobroMotos,
+											repositorioRegistro,
+											repositorioCarros,
+											repositorioMotos,
+											parqueadero);
+		vigilante.registrarCarro(carro1);
 		try {
-			parqueadero.registrarEntradaCarro(carro1, miercoles);
+			vigilante.registrarEntradaCarro(carro1, miercoles);
 			fail();
 		} catch (VehiculoException e) {
 			Assert.assertEquals(Vigilante.VEHICULO_DIA_NO_PERMITIDO, e.getMessage());
@@ -101,56 +104,59 @@ public class ParqueaderoTest {
 	@Test
 	public void registrarEntradaCarroPlacaIniConAUnLunesODomingoTest(){		
 		Carro carro1 = new Carro(PLACA_INI_CON_A);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarCarro(carro1);
-		parqueadero.registrarEntradaCarro(carro1, lunes);
-		Assert.assertTrue(parqueadero.estaCarroEnParqueadero(carro1));
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarCarro(carro1);
+		vigilante.registrarEntradaCarro(carro1, lunes);
+		Assert.assertTrue(vigilante.estaCarroEnParqueadero(carro1));
 		Assert.assertEquals(1, parqueadero.getCantidadCarros());
 	}
 	
 	@Test
 	public void registrarEntradaMismoCarroVariasVecesTest(){
 		Carro carro = new Carro(PLACA);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarCarro(carro);
-		parqueadero.registrarEntradaCarro(carro, miercoles);
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarCarro(carro);
+		vigilante.registrarEntradaCarro(carro, miercoles);
 		try {
-			parqueadero.registrarEntradaCarro(carro, miercoles);
+			vigilante.registrarEntradaCarro(carro, miercoles);
 			fail();
 		} catch (VehiculoException e) {
-			Assert.assertEquals(Parqueadero.VEHICULO_ESTA_EN_PARQUEADERO, e.getMessage());
+			Assert.assertEquals(Vigilante.VEHICULO_ESTA_EN_PARQUEADERO, e.getMessage());
 		}
 	}
 	
 	@Test
 	public void capacidadMaximaParqueaderoCarrosTest(){
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
+				repositorioMotos,
+				parqueadero);
 		for(int i=1; i <= CAPCIDAD_MAXIMA_CARROS; i++){
 			Carro carro = new Carro(Integer.toString(i));
-			parqueadero.registrarCarro(carro);
-			parqueadero.registrarEntradaCarro(carro, miercoles);
+			vigilante.registrarCarro(carro);
+			vigilante.registrarEntradaCarro(carro, miercoles);
 		}
 		try {
 			Carro carro = new Carro(Integer.toString(CAPCIDAD_MAXIMA_CARROS+1));
-			parqueadero.registrarEntradaCarro(carro, miercoles);
+			vigilante.registrarEntradaCarro(carro, miercoles);
 			fail();
 		} catch (VehiculoException e) {
-			Assert.assertEquals(Parqueadero.PARQUEADERO_CARROS_LLENO, e.getMessage());
+			Assert.assertEquals(Vigilante.PARQUEADERO_CARROS_LLENO, e.getMessage());
 		}
 	}
 	
@@ -158,67 +164,71 @@ public class ParqueaderoTest {
 	public void registrarSalidaCarroTest(){
 		double valorEsperado = 9000.0;
 		Carro carro = new Carro(PLACA);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarCarro(carro);
-		parqueadero.registrarEntradaCarro(carro, fechaEntrada);
-		double valor = parqueadero.registrarSalidaCarro(carro, fechaSalida);
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarCarro(carro);
+		vigilante.registrarEntradaCarro(carro, fechaEntrada);
+		double valor = vigilante.registrarSalidaCarro(carro, fechaSalida);
 		Assert.assertEquals(valorEsperado, valor, 0.0);
-		Assert.assertFalse(parqueadero.estaCarroEnParqueadero(carro));
+		Assert.assertFalse(vigilante.estaCarroEnParqueadero(carro));
 		Assert.assertEquals(0, parqueadero.getCantidadCarros());
 	}
 	
 	@Test
 	public void registrarSalidaMismoCarroVariasVecesTest(){
 		Carro carro = new Carro(PLACA);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarCarro(carro);
-		parqueadero.registrarEntradaCarro(carro, miercoles);
-		parqueadero.registrarSalidaCarro(carro, miercoles);
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarCarro(carro);
+		vigilante.registrarEntradaCarro(carro, miercoles);
+		vigilante.registrarSalidaCarro(carro, miercoles);
 		try {
-			parqueadero.registrarSalidaCarro(carro, miercoles);
+			vigilante.registrarSalidaCarro(carro, miercoles);
 			fail();
 		} catch (VehiculoException e) {
-			Assert.assertEquals(Parqueadero.VEHICULO_NO_ESTA_EN_PARQUEADERO, e.getMessage());
+			Assert.assertEquals(Vigilante.VEHICULO_NO_ESTA_EN_PARQUEADERO, e.getMessage());
 		}
 	}	
 	
 	@Test
 	public void registrarEntradaMotoTest(){
 		Moto moto = new Moto(PLACA, CILINDRAJE_ALTO);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarMoto(moto);
-		parqueadero.registrarEntradaMoto(moto, miercoles);
-		Assert.assertTrue(parqueadero.estaMotoEnParqueadero(moto));
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarMoto(moto);
+		vigilante.registrarEntradaMoto(moto, miercoles);
+		Assert.assertTrue(vigilante.estaMotoEnParqueadero(moto));
 		Assert.assertEquals(1, parqueadero.getCantidadMotos());
 	}
 	
 	@Test
 	public void registrarEntradaMotoPlacaIniConAUnMiercolesTest(){		
 		Moto moto = new Moto(PLACA_INI_CON_A, CILINDRAJE_ALTO);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarMoto(moto);
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarMoto(moto);
 		try {
-			parqueadero.registrarEntradaMoto(moto, miercoles);
+			vigilante.registrarEntradaMoto(moto, miercoles);
 			fail();
 		} catch (VehiculoException e) {
 			Assert.assertEquals(Vigilante.VEHICULO_DIA_NO_PERMITIDO, e.getMessage());
@@ -228,56 +238,59 @@ public class ParqueaderoTest {
 	@Test
 	public void registrarEntradaMotoPlacaIniConAUnLunesODomingoTest(){		
 		Moto moto = new Moto(PLACA_INI_CON_A, CILINDRAJE_ALTO);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarMoto(moto);
-		parqueadero.registrarEntradaMoto(moto, lunes);
-		Assert.assertTrue(parqueadero.estaMotoEnParqueadero(moto));
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarMoto(moto);
+		vigilante.registrarEntradaMoto(moto, lunes);
+		Assert.assertTrue(vigilante.estaMotoEnParqueadero(moto));
 		Assert.assertEquals(1, parqueadero.getCantidadMotos());
 	}
 	
 	@Test
 	public void registrarEntradaMismaMotoVariasVecesTest(){
 		Moto moto = new Moto(PLACA, CILINDRAJE_ALTO);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarMoto(moto);
-		parqueadero.registrarEntradaMoto(moto, miercoles);
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarMoto(moto);
+		vigilante.registrarEntradaMoto(moto, miercoles);
 		try {
-			parqueadero.registrarEntradaMoto(moto, miercoles);
+			vigilante.registrarEntradaMoto(moto, miercoles);
 			fail();
 		} catch (VehiculoException e) {
-			Assert.assertEquals(Parqueadero.VEHICULO_ESTA_EN_PARQUEADERO, e.getMessage());
+			Assert.assertEquals(Vigilante.VEHICULO_ESTA_EN_PARQUEADERO, e.getMessage());
 		}
 	}
 	
 	@Test
 	public void capacidadMaximaParqueaderoMotosTest(){
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
+				repositorioMotos,
+				parqueadero);
 		for(int i=1; i <= CAPACIDAD_MAXIMA_MOTOS; i++){
 			Moto moto = new Moto(Integer.toString(i), CILINDRAJE_ALTO);
-			parqueadero.registrarMoto(moto);
-			parqueadero.registrarEntradaMoto(moto, miercoles);
+			vigilante.registrarMoto(moto);
+			vigilante.registrarEntradaMoto(moto, miercoles);
 		}
 		try {
 			Moto moto = new Moto(Integer.toString(CAPACIDAD_MAXIMA_MOTOS+1), CILINDRAJE_ALTO);
-			parqueadero.registrarEntradaMoto(moto, miercoles);
+			vigilante.registrarEntradaMoto(moto, miercoles);
 			fail();
 		} catch (VehiculoException e) {
-			Assert.assertEquals(Parqueadero.PARQUEADERO_MOTOS_LLENO, e.getMessage());
+			Assert.assertEquals(Vigilante.PARQUEADERO_MOTOS_LLENO, e.getMessage());
 		}
 	}
 	
@@ -285,17 +298,18 @@ public class ParqueaderoTest {
 	public void registrarSalidaMotoCilindrajeAltoTest(){
 		double valorEsperado = 3100.0;
 		Moto moto = new Moto(PLACA, CILINDRAJE_ALTO);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarMoto(moto);
-		parqueadero.registrarEntradaMoto(moto, fechaEntrada);
-		double valor = parqueadero.registrarSalidaMoto(moto, fechaSalida);
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarMoto(moto);
+		vigilante.registrarEntradaMoto(moto, fechaEntrada);
+		double valor = vigilante.registrarSalidaMoto(moto, fechaSalida);
 		Assert.assertEquals(valorEsperado, valor, 0.0);
-		Assert.assertFalse(parqueadero.estaMotoEnParqueadero(moto));
+		Assert.assertFalse(vigilante.estaMotoEnParqueadero(moto));
 		Assert.assertEquals(0, parqueadero.getCantidadMotos());
 	}
 	
@@ -303,37 +317,39 @@ public class ParqueaderoTest {
 	public void registrarSalidaMotoCilindrajeBajoTest(){
 		double valorEsperado = 1100.0;
 		Moto moto = new Moto(PLACA, CILINDRAJE_BAJO);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarMoto(moto);
-		parqueadero.registrarEntradaMoto(moto, fechaEntrada);
-		double valor = parqueadero.registrarSalidaMoto(moto, fechaSalida);
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarMoto(moto);
+		vigilante.registrarEntradaMoto(moto, fechaEntrada);
+		double valor = vigilante.registrarSalidaMoto(moto, fechaSalida);
 		Assert.assertEquals(valorEsperado, valor, 0.0);
-		Assert.assertFalse(parqueadero.estaMotoEnParqueadero(moto));
+		Assert.assertFalse(vigilante.estaMotoEnParqueadero(moto));
 		Assert.assertEquals(0, parqueadero.getCantidadMotos());
 	}
 	
 	@Test
 	public void registrarSalidaMismaMotoVariasVecesTest(){
 		Moto moto = new Moto(PLACA, CILINDRAJE_ALTO);
-		Parqueadero parqueadero = new Parqueadero(	CAPCIDAD_MAXIMA_CARROS, 
-				CAPACIDAD_MAXIMA_MOTOS,
-				vigilante,
+		Vigilante vigilante = new Vigilante("Pepe",
+				estrategiaCobroCarros,
+				estrategiaCobroMotos,
 				repositorioRegistro,
 				repositorioCarros,
-				repositorioMotos);
-		parqueadero.registrarMoto(moto);
-		parqueadero.registrarEntradaMoto(moto, miercoles);
-		parqueadero.registrarSalidaMoto(moto, miercoles);
+				repositorioMotos,
+				parqueadero);
+		vigilante.registrarMoto(moto);
+		vigilante.registrarEntradaMoto(moto, miercoles);
+		vigilante.registrarSalidaMoto(moto, miercoles);
 		try {
-			parqueadero.registrarSalidaMoto(moto, miercoles);
+			vigilante.registrarSalidaMoto(moto, miercoles);
 			fail();
 		} catch (VehiculoException e) {
-			Assert.assertEquals(Parqueadero.VEHICULO_NO_ESTA_EN_PARQUEADERO, e.getMessage());
+			Assert.assertEquals(Vigilante.VEHICULO_NO_ESTA_EN_PARQUEADERO, e.getMessage());
 		}
 	}
 }

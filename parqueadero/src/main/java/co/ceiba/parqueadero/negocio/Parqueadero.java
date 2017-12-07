@@ -1,10 +1,5 @@
 package co.ceiba.parqueadero.negocio;
 
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,31 +7,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import co.ceiba.parqueadero.negocio.excepcion.VehiculoException;
-import co.ceiba.parqueadero.negocio.repositorio.IRepositorioCarros;
-import co.ceiba.parqueadero.negocio.repositorio.IRepositorioMotos;
-import co.ceiba.parqueadero.negocio.repositorio.IRepositorioRegistro;
-
 @Scope(value = "application")
 @Component
 @Transactional
 public class Parqueadero {
-	
-	public static final String VEHICULO_ESTA_EN_PARQUEADERO = "Ya se ecuentra un vehiculo con la placa en el parqueadero.";
-	public static final String VEHICULO_NO_ESTA_EN_PARQUEADERO = "No se ecuentra un vehiculo con la placa en el parqueadero.";
-	public static final String PARQUEADERO_MOTOS_LLENO = "El parqueadero de motos esta lleno.";
-	public static final String PARQUEADERO_CARROS_LLENO = "El parqueadero de carros esta lleno.";
-	public static final String VEHICULO_NO_REGISTRADO = "El vehiculo no esta registrado en la BD.";
-	
-	private IVigilar vigilante;
-	
-	@Autowired
-	private IRepositorioRegistro repositorioRegistro;
-	@Autowired
-	private IRepositorioCarros repositorioCarros;
-	@Autowired
-	private IRepositorioMotos repositorioMotos;
-	
+
 	private int capacidadMaximaCarros;
 	
 	private int capacidadMaximaMotos;	
@@ -46,25 +21,9 @@ public class Parqueadero {
 	
 	@Autowired
 	public Parqueadero( @Value("20")int capacidadMaximaCarros,
-						@Value("10") int capacidadMaximaMotos, 
-						IVigilar vigilante,						
-						IRepositorioRegistro repositorioRegistro,
-						IRepositorioCarros repositorioCarros,
-						IRepositorioMotos repositorioMotos){
+						@Value("10") int capacidadMaximaMotos){
 		this.capacidadMaximaCarros = capacidadMaximaCarros;
 		this.capacidadMaximaMotos = capacidadMaximaMotos;
-		this.vigilante = vigilante;
-		this.repositorioRegistro = repositorioRegistro;
-		this.repositorioCarros = repositorioCarros;
-		this.repositorioMotos = repositorioMotos;
-	}
-	
-	public IVigilar getVigilante() {
-		return vigilante;
-	}
-
-	public void setVigilante(IVigilar vigilante) {
-		this.vigilante = vigilante;
 	}
 
 	public int getCapacidadCarros() {
@@ -82,115 +41,12 @@ public class Parqueadero {
 	public int getCantidadCarros() {
 		return cantidadCarros;
 	}
-	
-	@SuppressWarnings("unchecked")
-	public ArrayList<Carro> obtenerCarros(){
-		return (ArrayList<Carro>)repositorioCarros.obtenerTodos();
-	}
-	
-	public void registrarCarro(Carro carro){
-		Carro carroBD = (Carro) repositorioCarros.obtenerPorPlaca(carro.getPlaca());
-		if(carroBD == null){
-			repositorioCarros.agregar(carro);
-		}
-	}	
-	
-	public void registrarEntradaCarro(Vehiculo vehiculo, Date fechaEntrada){
-		if(estaCarroEnParqueadero(vehiculo)){
-			throw new VehiculoException(VEHICULO_ESTA_EN_PARQUEADERO);
-		}		
-		if(cantidadCarros+1 > capacidadMaximaCarros){
-			throw new VehiculoException(PARQUEADERO_CARROS_LLENO);
-		}
-		vigilante.revisarVehiculo(vehiculo);
-		vigilante.revisarPlacaPermiso(fechaEntrada, vehiculo.getPlaca());
-		
-		Carro carro = (Carro) repositorioCarros.obtenerPorPlaca(vehiculo.getPlaca());
-		if(carro == null){
-			throw new VehiculoException(VEHICULO_NO_REGISTRADO);
-		}
-		
-		Registro registro = new Registro(fechaEntrada, null , carro, 0.0);		
-		
-		repositorioRegistro.agregarRegistroCarro(registro);
-		cantidadCarros += 1;
-	}
-	
-	public double registrarSalidaCarro(Vehiculo vehiculo , Date fechaSalida){
-		if(!estaCarroEnParqueadero(vehiculo)){
-			throw new VehiculoException(VEHICULO_NO_ESTA_EN_PARQUEADERO);
-		}
-		vigilante.revisarVehiculo(vehiculo);
-		Registro registro = repositorioRegistro.obtenerUltimoRegistroCarroPorPlaca(vehiculo.getPlaca());
-		registro.setFechaSalida(fechaSalida);
-		registro.setValor(vigilante.cobrarCarro(registro));
-		repositorioRegistro.actualizarRegistroCarro(registro);
-		cantidadCarros -= 1;
-		return registro.getValor();
-	}
-	
-	public void registrarMoto(Moto moto){
-		Moto motoBD = (Moto) repositorioMotos.obtenerPorPlaca(moto.getPlaca());
-		if(motoBD == null){
-			repositorioMotos.agregar(moto);
-		}		
-	}
-	
-	@SuppressWarnings("unchecked")
-	public ArrayList<Moto> obtenerMotos(){
-		return (ArrayList<Moto>)repositorioMotos.obtenerTodos();
-	}
-	
-	public void registrarEntradaMoto(Vehiculo vehiculo, Date fechaEntrada){
-		if(estaMotoEnParqueadero(vehiculo)){
-			throw new VehiculoException(VEHICULO_ESTA_EN_PARQUEADERO);
-		}		
-		if(cantidadMotos+1 > capacidadMaximaMotos){
-			throw new VehiculoException(PARQUEADERO_MOTOS_LLENO);
-		}
-		vigilante.revisarVehiculo(vehiculo);
-		vigilante.revisarPlacaPermiso(fechaEntrada, vehiculo.getPlaca());
-		
-		Moto moto = (Moto) repositorioMotos.obtenerPorPlaca(vehiculo.getPlaca());
-		
-		if(moto == null){
-			throw new VehiculoException(VEHICULO_NO_REGISTRADO);
-		}
-		
-		Registro registro = new Registro(fechaEntrada, null, moto, 0.0);
-		repositorioRegistro.agregarRegistroMoto(registro);
-		cantidadMotos += 1;
-	}	
 
-	public double registrarSalidaMoto(Vehiculo vehiculo, Date fechaSalida){
-		if(!estaMotoEnParqueadero(vehiculo)){
-			throw new VehiculoException(VEHICULO_NO_ESTA_EN_PARQUEADERO);
-		}
-		vigilante.revisarVehiculo(vehiculo);
-		
-		Registro registro = repositorioRegistro.obtenerUltimoRegistroMotoPorPlaca(vehiculo.getPlaca());
-		registro.setFechaSalida(fechaSalida);
-		registro.setValor(vigilante.cobrarMoto(registro));
-		repositorioRegistro.actualizarRegistroMoto(registro);
-		cantidadMotos -= 1;
-		return registro.getValor();
+	public void setCantidadMotos(int cantidadMotos) {
+		this.cantidadMotos = cantidadMotos;
 	}
 
-	public ArrayList<Registro> obtenerMotosEnParqueadero(){
-		return repositorioRegistro.obtenerRegistrosMotos();
-	}
-
-	public ArrayList<Registro> obtenerCarrosEnParqueadero(){
-		return repositorioRegistro.obtenerRegistrosCarros();
-	}
-
-	public boolean estaCarroEnParqueadero(Vehiculo vehiculo){
-		Registro registro = repositorioRegistro.obtenerUltimoRegistroCarroPorPlaca(vehiculo.getPlaca());
-		return registro != null && registro.getFechaSalida() == null ? true : false;
-	}
-
-	public boolean estaMotoEnParqueadero(Vehiculo vehiculo){
-		Registro registro = repositorioRegistro.obtenerUltimoRegistroMotoPorPlaca(vehiculo.getPlaca());
-		return registro != null && registro.getFechaSalida() == null ? true : false;
+	public void setCantidadCarros(int cantidadCarros) {
+		this.cantidadCarros = cantidadCarros;
 	}
 }

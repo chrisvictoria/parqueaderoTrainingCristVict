@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import co.ceiba.parqueadero.negocio.Carro;
+import co.ceiba.parqueadero.negocio.IVigilar;
 import co.ceiba.parqueadero.negocio.Moto;
 import co.ceiba.parqueadero.negocio.Parqueadero;
 import co.ceiba.parqueadero.negocio.Registro;
@@ -26,7 +27,7 @@ public class RegistroVehiculosRest{
 	private static final String REGISTRO_ALMACENADO = "Vehiculo registrado exitosamente.";
 	
 	@Autowired
-	Parqueadero parqueadero;
+	IVigilar vigilante;
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
@@ -36,12 +37,12 @@ public class RegistroVehiculosRest{
 		try{
 			if(registroParamsWrapper.getTipo().equals("Carro")){
 				Carro carro = registroParamsWrapper.getCarro();
-				parqueadero.registrarCarro(carro);
-				parqueadero.registrarEntradaCarro(carro, registroParamsWrapper.getDateEntrada());
+				vigilante.registrarCarro(carro);
+				vigilante.registrarEntradaCarro(carro, registroParamsWrapper.getDateEntrada());
 			}else if(registroParamsWrapper.getTipo().equals("Moto")){
 				Moto moto = registroParamsWrapper.getMoto();
-				parqueadero.registrarMoto(moto);
-				parqueadero.registrarEntradaMoto(moto, registroParamsWrapper.getDateEntrada());
+				vigilante.registrarMoto(moto);
+				vigilante.registrarEntradaMoto(moto, registroParamsWrapper.getDateEntrada());
 			}
 		} catch (VehiculoException e) {
 			return e.getMessage();
@@ -60,10 +61,10 @@ public class RegistroVehiculosRest{
 		try{
 			if(registroParamsWrapper.getTipo().equals("Carro")){
 				Carro carro = registroParamsWrapper.getCarro();
-				varlor = parqueadero.registrarSalidaCarro(carro, registroParamsWrapper.getDateSalida());
+				varlor = vigilante.registrarSalidaCarro(carro, registroParamsWrapper.getDateSalida());
 			}else if(registroParamsWrapper.getTipo().equals("Moto")){
 				Moto moto = registroParamsWrapper.getMoto();
-				varlor = parqueadero.registrarSalidaMoto(moto, registroParamsWrapper.getDateSalida());
+				varlor = vigilante.registrarSalidaMoto(moto, registroParamsWrapper.getDateSalida());
 			}			
 		} catch (VehiculoException e) {
 			return e.getMessage();
@@ -77,27 +78,27 @@ public class RegistroVehiculosRest{
 	@Path("getCarrosEnParqueadero")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Registro> getCarrosEnParqueadero() {
-		return parqueadero.obtenerCarrosEnParqueadero();
+		return vigilante.obtenerCarrosEnParqueadero();
 	}
 	
 	@GET
 	@Path("getMotosEnParqueadero")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Registro> getMotosEnParqueadero() {
-		return parqueadero.obtenerMotosEnParqueadero();
+		return vigilante.obtenerMotosEnParqueadero();
 	}
 	
 	@GET
 	@Path("getCarros")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Carro> getCarros() {
-		return parqueadero.obtenerCarros();
+		return vigilante.obtenerCarros();
 	}
 	
 	@GET
 	@Path("getMotos")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Moto> getMotos() {
-		return parqueadero.obtenerMotos();
+		return vigilante.obtenerMotos();
 	}
 }
