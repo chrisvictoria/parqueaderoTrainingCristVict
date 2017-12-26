@@ -51,6 +51,7 @@ test {
 	reports.junitXml.destination = file("jacoco/test-results")
 }
 
+
 sourceSets.test.output.resourcesDir = sourceSets.main.output.classesDir
 sourceSets.main.output.resourcesDir = sourceSets.main.output.classesDir
 compileJava.dependsOn(processResources)

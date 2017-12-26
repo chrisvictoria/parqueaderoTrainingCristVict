@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2017-12-07T17:32:53" hostname="CRISTIAN-VICTORIA" time="6.979">
+<testsuite name="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2017-12-26T19:24:47" hostname="CRISTIAN-VICTORIA" time="4.719">
   <properties/>
-  <testcase name="registrarEntradaMismaMotoVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="3.258"/>
-  <testcase name="registrarSalidaMismaMotoVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.208"/>
-  <testcase name="registrarEntradaCarroPlacaIniConAUnMiercolesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.212"/>
-  <testcase name="registrarEntradaMotoPlacaIniConAUnLunesODomingoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.293"/>
-  <testcase name="registrarEntradaMotoPlacaIniConAUnMiercolesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.265"/>
-  <testcase name="registrarEntradaCarroPlacaIniConAUnLunesODomingoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.29"/>
-  <testcase name="registrarEntradaCarroTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.24"/>
-  <testcase name="registrarSalidaMismoCarroVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.232"/>
-  <testcase name="registrarEntradaMismoCarroVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.197"/>
-  <testcase name="registrarSalidaCarroTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.26"/>
-  <testcase name="registrarEntradaMotoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.229"/>
-  <testcase name="capacidadMaximaParqueaderoMotosTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.397"/>
-  <testcase name="capacidadMaximaParqueaderoCarrosTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.465"/>
-  <testcase name="registrarSalidaMotoCilindrajeAltoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.226"/>
-  <testcase name="registrarSalidaMotoCilindrajeBajoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.198"/>
+  <testcase name="registrarEntradaMismaMotoVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="2.996"/>
+  <testcase name="registrarSalidaMismaMotoVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.156"/>
+  <testcase name="registrarEntradaCarroPlacaIniConAUnMiercolesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.126"/>
+  <testcase name="registrarEntradaMotoPlacaIniConAUnLunesODomingoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.113"/>
+  <testcase name="registrarEntradaMotoPlacaIniConAUnMiercolesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.104"/>
+  <testcase name="registrarEntradaCarroPlacaIniConAUnLunesODomingoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.111"/>
+  <testcase name="registrarEntradaCarroTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.086"/>
+  <testcase name="registrarSalidaMismoCarroVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.096"/>
+  <testcase name="registrarEntradaMismoCarroVariasVecesTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.098"/>
+  <testcase name="registrarSalidaCarroTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.106"/>
+  <testcase name="registrarEntradaMotoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.104"/>
+  <testcase name="capacidadMaximaParqueaderoMotosTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.173"/>
+  <testcase name="capacidadMaximaParqueaderoCarrosTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.249"/>
+  <testcase name="registrarSalidaMotoCilindrajeAltoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.1"/>
+  <testcase name="registrarSalidaMotoCilindrajeBajoTest" classname="co.ceiba.parqueadero.negocio.integracion.VigilanteTest" time="0.096"/>
   <system-out><![CDATA[Hibernate: drop table Carro if exists
 Hibernate: drop table Moto if exists
 Hibernate: drop table RegistroCarro if exists

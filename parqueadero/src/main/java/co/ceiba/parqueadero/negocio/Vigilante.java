@@ -81,23 +81,23 @@ public class Vigilante implements IVigilar{
 			throw new VehiculoException(VEHICULO_DIA_NO_PERMITIDO);
 		}
 	}
-	
+
 	public double cobrarMoto(Registro registro){
 		Moto moto = (Moto)registro.getVehiculo();
 		double valor = estrategiaCobroMoto.cobrar(registro.getFechaEntrada(), registro.getFechaSalida(), moto.getCilindraje());
 		return valor;
 	}
-	
+
 	public double cobrarCarro(Registro registro){
 		double valor = estrategiaCobroCarro.cobrar(registro.getFechaEntrada(), registro.getFechaSalida(), 0.0);
 		return valor;
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public ArrayList<Carro> obtenerCarros(){
 		return (ArrayList<Carro>)repositorioCarros.obtenerTodos();
 	}
-	
+
 	public void registrarCarro(Carro carro){
 		Carro carroBD = (Carro) repositorioCarros.obtenerPorPlaca(carro.getPlaca());
 		if(carroBD == null){

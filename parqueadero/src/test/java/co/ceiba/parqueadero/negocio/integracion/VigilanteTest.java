@@ -45,7 +45,7 @@ public class VigilanteTest {
 	private Parqueadero parqueadero;
 
 	@Before
-	public void setUp() throws ParseException {		
+	public void setUp() throws ParseException {
 		sistemaPersistencia = new SistemaDePersistencia();
 		repositorioRegistro = sistemaPersistencia.getRepositorioRegistro();
 		repositorioCarros = sistemaPersistencia.getRepositorioCarros();
